@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daris Wilson — From The Floor Up</title>
-<meta name="description" content="Daris Wilson — business coach, operator, and founder of From The Floor Up. Weekly systems and ops for service business owners who are still in the fight.">
+<title>From The Floor Up</title>
+<meta name="description" content="From The Floor Up — a weekly newsletter for service business owners who are building something real and starting to feel the weight of having built it around themselves. By Daris Wilson.">
 <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -53,12 +53,51 @@
   }
 
   .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-mark {
+    width: 32px;
+    height: 32px;
+    background: var(--strike);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-mark span {
     font-family: var(--display);
     font-weight: 700;
-    font-size: 18px;
+    font-size: 14px;
+    color: var(--pitch);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .nav-logo-text {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 15px;
     color: var(--print);
-    text-decoration: none;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    text-transform: uppercase;
+  }
+
+  .nav-logo-text em {
+    display: block;
+    font-style: normal;
+    font-size: 9px;
+    font-family: var(--body);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    color: var(--stone);
+    text-transform: uppercase;
+    margin-top: 1px;
   }
 
   .nav-links {
@@ -220,6 +259,28 @@
     height: 3px;
     background: var(--strike);
     margin-bottom: 20px;
+  }
+
+  /* ── STORY INTRO ── */
+  .story-intro {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 32px;
+  }
+
+  .story-headshot {
+    width: 160px;
+    height: 160px;
+    flex-shrink: 0;
+    object-fit: cover;
+    object-position: top;
+    border: 3px solid var(--strike);
+  }
+
+  @media (max-width: 700px) {
+    .story-intro { flex-direction: column; gap: 24px; }
+    .story-headshot { width: 120px; height: 120px; }
   }
 
   /* ── STORY TIMELINE ── */
@@ -475,6 +536,10 @@
     margin-top: 32px;
   }
 
+  @media (max-width: 700px) {
+    .work-cards { grid-template-columns: 1fr; }
+  }
+
   .work-card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
@@ -510,19 +575,41 @@
     margin-bottom: 0;
   }
 
-  .work-card-status {
-    display: inline-block;
+  .work-card-price {
     font-family: var(--body);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.06em;
+    color: var(--strike);
     text-transform: uppercase;
-    margin-top: 14px;
-    padding: 4px 10px;
+    margin-top: 6px;
+    display: block;
   }
 
-  .status-active { background: var(--strike); color: var(--pitch); }
-  .status-coming { background: rgba(255,255,255,0.08); color: var(--stone); }
+  .work-card-cta {
+    display: inline-block;
+    margin-top: 18px;
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .cta-primary {
+    background: var(--strike);
+    color: var(--pitch);
+  }
+
+  .cta-outline {
+    border: 1px solid rgba(255,255,255,0.25);
+    color: var(--print);
+  }
+
+  .work-card-cta:hover { opacity: 0.82; }
 
   /* ── EMAIL SIGNUP ── */
   .signup {
@@ -598,12 +685,11 @@
 
   .signup-form button:hover { background: #2a2a28; }
 
-  /* ── CONTACT ── */
+  /* ── CONTACT FORM ── */
   .contact {
-    max-width: 800px;
+    max-width: 640px;
     margin: 0 auto;
     padding: 80px 32px;
-    text-align: center;
   }
 
   .contact h2 {
@@ -613,15 +699,15 @@
     color: var(--pitch);
     line-height: 1.15;
     letter-spacing: -0.02em;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
-  .contact p {
+  .contact .contact-sub {
     font-family: var(--body);
     font-size: 15px;
     color: var(--stone);
     line-height: 1.6;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
 
   .contact a {
@@ -629,6 +715,84 @@
     font-weight: 500;
     text-decoration: underline;
     text-underline-offset: 3px;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--pitch);
+    background: var(--white);
+    border: 1px solid var(--slab);
+    padding: 13px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: var(--stone);
+  }
+
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    border-color: var(--stone);
+  }
+
+  .contact-form textarea {
+    resize: vertical;
+    min-height: 130px;
+    line-height: 1.6;
+  }
+
+  .contact-form button {
+    align-self: flex-start;
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--pitch);
+    color: var(--print);
+    border: none;
+    padding: 14px 32px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .contact-form button:hover { background: #2a2a28; }
+
+  .contact-form-success {
+    display: none;
+    background: var(--pitch);
+    color: var(--print);
+    padding: 18px 24px;
+    font-family: var(--body);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 700px) {
+    .contact-form-row { grid-template-columns: 1fr; }
+    .contact-form button { width: 100%; text-align: center; }
   }
 
   /* ── FOOTER ── */
@@ -698,7 +862,10 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-brand" onclick="showHome(); return false;">Daris Wilson</a>
+      <a href="#" class="nav-brand" onclick="showHome(); return false;">
+        <div class="nav-logo-mark"><span>FTFU</span></div>
+        <div class="nav-logo-text">From The Floor Up<em>by Daris Wilson</em></div>
+      </a>
       <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -719,7 +886,7 @@
     <section class="hero">
       <p class="hero-label">From The Floor Up</p>
       <h1>Systems and ops for the ones <span>still in the fight.</span></h1>
-      <p class="hero-sub">A weekly newsletter by Daris Wilson for service business owners who are building something real and starting to feel the weight of having built it around themselves.</p>
+      <p class="hero-sub">A weekly newsletter for service business owners who are building something real and starting to feel the weight of having built it around themselves. Written by a 16-year operator who's been there.</p>
       <a href="#subscribe" class="hero-cta">Subscribe Free</a>
     </section>
 
@@ -727,34 +894,40 @@
     <section class="section" id="story">
       <div class="strike-bar"></div>
       <span class="section-label">The Story</span>
-      <h2>Like Paris, but with a D.</h2>
-      <p>I have spent the last 16 years building, running, and fixing businesses from the inside. Not advising from a distance. Actually doing it, every day, with real money on the line and real people counting on me to figure it out.</p>
-      <p>That work has given me a particular skill set: I see how businesses actually run, where they break down, and what it takes to build something that works without the owner doing everything.</p>
+      <h2>16 years of building from the inside.</h2>
+      <div class="story-intro">
+        <img src="daris-profile.jpg" alt="Daris Wilson" class="story-headshot">
+        <p>My name is Daris, like Paris but with a D. I've been building businesses since 2008 across fitness, e-commerce, and coaching, and every lesson I teach comes from something I built with my own money on the line. I went from All-Conference D1 athlete to accountant to the regulation side of the NYSE to full-time entrepreneur, and I've spent the better part of two decades figuring out what it takes to build a business that actually works when the owner steps out of the room.</p>
+      </div>
 
       <div class="timeline">
         <div class="timeline-item">
+          <span class="timeline-year">2005</span>
+          <div class="timeline-text"><strong>Bucknell University, BSBA in Accounting.</strong> Born and raised in New Orleans, graduated after four years as an All-Conference Division I athlete. Hurricane Katrina changed the trajectory and brought me to New York, where I started my career on the regulation side of the New York Stock Exchange.</div>
+        </div>
+        <div class="timeline-item">
           <span class="timeline-year">2008</span>
-          <div class="timeline-text"><strong>Jersey City Fitness (JCF)</strong> — Built the first boutique fitness business in Jersey City, NJ while working full time at the NYSE. Grew it through guerrilla marketing and showing up before and after market hours. First real lesson in what it means to build something from nothing.</div>
+          <div class="timeline-text"><strong>Jersey City Fitness (JCF).</strong> Built the first boutique fitness business in Jersey City, NJ while still working full-time at the NYSE. Early mornings before the opening bell, late nights after market close, and guerrilla marketing in a city that didn't have anything like it yet.</div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">2010</span>
-          <div class="timeline-text"><strong>Full time entrepreneur.</strong> Walked out of the NYSE on March 9, 2010. Sat down at a Starbucks on Grove Street the next morning and started building. That morning is the reason this newsletter launches on March 10 every year.</div>
+          <div class="timeline-text"><strong>Full-time entrepreneur.</strong> Left the NYSE on March 9, 2010. I had clients, but I sat down at a Starbucks on Grove Street the next morning with no safety net and started building the business around them. That morning is the reason this newsletter launches on March 10.</div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">2013</span>
-          <div class="timeline-text"><strong>The hard reset.</strong> After years of being the business, I hit the wall. Hired a business coach, invested in sales education, and made the shift from "I'm a good trainer" to "I need to build a real business." That shift changed everything that came after.</div>
+          <div class="timeline-text"><strong>The reset.</strong> Three years into running the business full-time, the model broke. Revenue was inconsistent, the business ran entirely through me, and I had no real systems to speak of. I hired a business coach, invested in learning how to sell and how to lead, and that decision reshaped every business I've built since.</div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">2020</span>
-          <div class="timeline-text"><strong>COVID pivot.</strong> Transitioned JCF online when the world shut down. Kept the community alive and the business running when most folded. Ran the fitness business through 2022, 14 years total.</div>
+          <div class="timeline-text"><strong>COVID pivot.</strong> Moved JCF online when the world shut down and kept the community together through a year that closed most fitness businesses permanently. Ran JCF for 14 years total, 2008 through 2022.</div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">2021</span>
-          <div class="timeline-text"><strong>Terrell Dominick LLC</strong> — Co-founded an e-commerce fashion brand with my wife. $40K to $85K in monthly revenue. I run operations, marketing, and manufacturing. A completely different business that uses the same systems thinking.</div>
+          <div class="timeline-text"><strong>Terrell Dominick LLC.</strong> Co-founded an e-commerce fashion brand with my wife. $40K to $85K in monthly revenue, with me running operations, marketing, and manufacturing. A completely different industry built on the same systems thinking.</div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">2026</span>
-          <div class="timeline-text"><strong>From The Floor Up + The Staged CEO&trade;</strong> — Now building coaching and education for service business owners who are ready to stop being the business and start running one. The newsletter is the weekly conversation. The Staged CEO is the deep work.</div>
+          <div class="timeline-text"><strong>From The Floor Up + The Staged CEO&trade;.</strong> Launched a weekly newsletter for service business owners and started building The Staged CEO Accelerator, a 12-week program for home staging entrepreneurs who are ready to stop doing the work and start running the company. The work continues.</div>
         </div>
       </div>
     </section>
@@ -768,6 +941,12 @@
       <p class="stone">New issues publish every Tuesday morning. Subscribe at <a href="https://fromthefloorup.co" target="_blank" style="color: var(--strike); text-decoration: underline; text-underline-offset: 3px;">fromthefloorup.co</a> to get them in your inbox.</p>
 
       <div class="archive-grid">
+        <div class="archive-card" onclick="showArticle('issue-003')">
+          <p class="archive-card-meta">Issue 003 &middot; March 24, 2026 &middot; 4 min read</p>
+          <h3>Discretion Is the Absence of Systems</h3>
+          <p>Discretion is the absence of systems. How one document turned six different session experiences into one consistent brand.</p>
+          <span class="read-link">Read &rarr;</span>
+        </div>
         <div class="archive-card" onclick="showArticle('issue-002')">
           <p class="archive-card-meta">Issue 002 &middot; March 17, 2026 &middot; 4 min read</p>
           <h3>You've Been Asking the Wrong Question</h3>
@@ -789,21 +968,34 @@
     <section class="work-section" id="work">
       <div class="work-inner">
         <span class="section-label">Work With Me</span>
-        <h2>Two ways to go deeper.</h2>
-        <p>The newsletter is where the conversation starts. If you're ready to do the actual work of building a business that runs without you, here's where that happens.</p>
+        <h2>Four ways to go deeper.</h2>
+        <p>The newsletter is where the conversation starts. When you're ready to do the actual work of building a business that runs without you, here's where that happens.</p>
 
         <div class="work-cards">
           <div class="work-card">
             <p class="work-card-label">Newsletter</p>
             <h3>From The Floor Up</h3>
             <p>One real lesson every Tuesday for service business owners who are building something and feeling the weight of having built it around themselves. Free forever.</p>
-            <span class="work-card-status status-active">Live Now</span>
+            <a href="#subscribe" class="work-card-cta cta-primary" onclick="showHome()">Subscribe Now</a>
           </div>
           <div class="work-card">
-            <p class="work-card-label">Course</p>
-            <h3>The Staged CEO&trade; Accelerator</h3>
-            <p>A 12-week self-study program built on the 5-Room Model&trade; for home staging entrepreneurs who are ready to stop being a technician and start running a real company.</p>
-            <span class="work-card-status status-coming">Coming Soon</span>
+            <p class="work-card-label">Digital Product</p>
+            <h3>The Doer to Owner Blueprint</h3>
+            <p>The exact framework for moving from technician to CEO — the mindset, the systems, and the first five moves every owner needs to make. Instant download.</p>
+            <span class="work-card-price">$27 &middot; Instant Download</span>
+            <a href="mailto:hello@fromthefloorup.co?subject=Doer to Owner Blueprint" class="work-card-cta cta-primary">Get Instant Access</a>
+          </div>
+          <div class="work-card">
+            <p class="work-card-label">Self-Paced Program</p>
+            <h3>The Doer to Owner Accelerator</h3>
+            <p>A structured program for service business owners who are ready to build the systems, team, and habits that let the business run without them being everywhere at once.</p>
+            <a href="mailto:hello@fromthefloorup.co?subject=Doer to Owner Accelerator Waitlist" class="work-card-cta cta-outline">Join the Waitlist</a>
+          </div>
+          <div class="work-card">
+            <p class="work-card-label">1:1 Coaching</p>
+            <h3>Business &amp; Leadership Coaching</h3>
+            <p>Direct work with Daris for operators who are ready to move fast, think clearly, and build a business that reflects where they are actually trying to go.</p>
+            <a href="mailto:hello@fromthefloorup.co?subject=Coaching Inquiry" class="work-card-cta cta-outline">Inquire</a>
           </div>
         </div>
       </div>
@@ -823,10 +1015,22 @@
 
     <!-- CONTACT -->
     <section class="contact" id="contact">
-      <div class="strike-bar" style="margin: 0 auto 24px;"></div>
+      <div class="strike-bar"></div>
       <h2>Get in touch.</h2>
-      <p>For coaching inquiries, collaborations, or just to say what's up.</p>
-      <p><a href="mailto:hello@fromthefloorup.co">hello@fromthefloorup.co</a></p>
+      <p class="contact-sub">For coaching inquiries, collaborations, or just to say what's up. You can also reach me directly at <a href="mailto:hello@fromthefloorup.co">hello@fromthefloorup.co</a>.</p>
+      <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
+        <div class="contact-form-row">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+        <input type="tel" name="phone" placeholder="Phone Number">
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div class="contact-form-success" id="contactSuccess">
+        Got it. I'll be in touch within 48 hours.
+      </div>
     </section>
 
   </div><!-- /homeView -->
@@ -923,9 +1127,52 @@ Keep the language simple. Do not use corporate jargon. Write as if you are expla
     </div>
   </div>
 
+  <!-- Issue 003 -->
+  <div class="article-view" id="issue-003">
+    <a class="article-back" onclick="showHome(); return false;">&larr; Back to Archive</a>
+    <p class="article-meta">Issue 003 &middot; March 24, 2026 &middot; 4 min read</p>
+    <h1>Discretion Is the Absence of Systems</h1>
+
+    <span class="article-section-label">From the Floor</span>
+    <p>When I ran JCF Boot Camp in Jersey City, I had a team of coaches. Good ones. They cared about the members, they showed up on time, and they brought real energy to every session.</p>
+    <p>But every single one of them ran sessions differently. One opened the huddle with a pep talk. Another skipped it and went straight into the demo. One did a full breakdown at the end with detailed coaching notes, another wrapped with a quick high-five and sent everyone home. The members noticed. Some loved Tuesdays and dreaded Thursdays, not because of the workout but because the experience felt like a different gym depending on who was leading.</p>
+    <p>I was frustrated at first. I thought I had a coaching problem. Then I realized I had a systems problem. I had never written down what a JCF session actually looked like from start to finish.</p>
+    <p>So I built what I called the Anatomy of a JCF Session. One page. It defined the structure every coach followed:</p>
+    <p>Members warm up on their own before the session starts. Huddle at the top to set the intention and prime the session, ending with the "Better Body. Better Life." breakdown. Demo. Pre-workout. Main workout. Finisher. Cool down with announcements. Post breakdown: "All day. Everyday."</p>
+    <p>That was it. No script for what to say during the huddle, no requirement that every coach sound like me. The structure was the standard. The personality on top of it was theirs.</p>
+    <p>The moment that document existed, the member experience became recognizable no matter who was leading. Tuesdays felt like JCF. Thursdays felt like JCF. Because it wasn't the Daris way anymore. It was the JCF way.</p>
+
+    <span class="article-section-label">The System</span>
+    <p>Discretion is the absence of systems.</p>
+    <p>Every place in your business where a team member is using their own judgment to fill a gap is a place where you haven't built a system yet. That's not a criticism of the person. Their judgment is often reasonable, sometimes good. But it's inconsistent by definition, because judgment varies from person to person and from day to day, and the client experience shifts with it.</p>
+    <p>My coaches weren't doing anything wrong. They were doing what every capable person does when the instructions are vague: they improvised. And improvisation across a team produces variety, not consistency.</p>
+    <p>This is the part most service business owners resist, because it feels like building a standard removes the personal touch. It doesn't. It protects it. When the structure is consistent, the personality on top of it has room to breathe. When the structure is missing, the personality is doing all the work, and the experience depends entirely on which team member shows up that day.</p>
+    <p>The Anatomy of a JCF Session didn't tell coaches what to say or how to coach. It told them what the session looks like, the order of events, the bookends, the non-negotiable touchpoints. Within that structure, every coach brought their own style and their own energy, and the members got the benefit of both: a consistent experience and a human one.</p>
+    <p>The question worth sitting with is not "is my team doing it wrong." The question is "have I defined what the experience should feel like in a way that doesn't depend on me being in the room."</p>
+    <p>If the answer is no, your team is operating on discretion. And discretion, across a team, produces exactly what you're seeing: inconsistency that feels like a people problem but is actually an infrastructure problem.</p>
+    <p>The standard doesn't belong to you. It belongs to the company. When you build it that way, the company can hold it whether you're there or not.</p>
+
+    <span class="article-section-label">In My Stack</span>
+    <p>I've been using Notion as the home base for all of the system documents in my coaching practice. One workspace, one template, every system linked to the others. The thing I like about it is that the documents are alive. I can update a process in two minutes and everyone with access sees the current version immediately. No emailing updated PDFs, no "which version is the latest" conversations. If you're still storing your operating documents in scattered Google Docs or text threads, try consolidating them into one workspace. The clarity of having everything in one place is worth the afternoon it takes to set up.</p>
+
+    <div class="ask-box">
+      <p>If you pulled three different team members aside and asked each one to walk you through how they handle the same client-facing task, would you hear three versions of the same answer or three completely different answers.</p>
+    </div>
+
+    <span class="article-section-label">One Thing This Week</span>
+    <div class="one-thing">
+      <p>Pick one client-facing experience your team delivers regularly. Write down three things: what the experience should look like from start to finish, which moments are non-negotiable, and what the client should walk away feeling. That's not a full system document. That's the anatomy of your version of a session, and it's the foundation the document gets built from.</p>
+    </div>
+
+    <div class="sign-off">
+      <p>Daris</p>
+      <p>Founder, From The Floor Up &middot; <a href="https://fromthefloorup.co" target="_blank" style="color: var(--strike);">fromthefloorup.co</a></p>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer">
-    <p>&copy; 2026 Daris Wilson &middot; <a href="https://fromthefloorup.co" target="_blank">From The Floor Up</a> &middot; <a href="mailto:hello@fromthefloorup.co">hello@fromthefloorup.co</a></p>
+    <p>&copy; 2026 From The Floor Up &middot; <a href="https://fromthefloorup.co" target="_blank">fromthefloorup.co</a> &middot; <a href="mailto:hello@fromthefloorup.co">hello@fromthefloorup.co</a></p>
   </footer>
 
   <script>
@@ -954,6 +1201,22 @@ Keep the language simple. Do not use corporate jargon. Write as if you are expla
         el.classList.remove('active');
       });
       document.getElementById('homeView').style.display = 'block';
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      var form = document.getElementById('contactForm');
+      var data = new FormData(form);
+      var subject = encodeURIComponent(data.get('subject') || 'Contact Form');
+      var body = encodeURIComponent(
+        'Name: ' + data.get('name') + '\n' +
+        'Email: ' + data.get('email') + '\n' +
+        'Phone: ' + (data.get('phone') || '—') + '\n\n' +
+        data.get('message')
+      );
+      window.location.href = 'mailto:hello@fromthefloorup.co?subject=' + subject + '&body=' + body;
+      form.style.display = 'none';
+      document.getElementById('contactSuccess').style.display = 'block';
     }
   </script>
 
