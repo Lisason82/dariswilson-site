@@ -1083,6 +1083,36 @@
             </div>
           </div>
         </div>
+
+        <div class="resource-card">
+          <p class="resource-card-label">Social Proof</p>
+          <h3>Social Proof Playbook</h3>
+          <p>A three-page playbook for building reviews, testimonials, and case studies into the service itself instead of asking for them after. Walks through the three capture points inside any client engagement, with intake questions, midpoint prompts, a closeout capture set, a 7 to 14 day follow-up email template, and a fillable Proof Calendar you map to your own business.</p>
+          <p class="resource-card-meta">PDF &middot; 3 pages &middot; Fillable</p>
+
+          <!-- Email gate: form shown, download hidden -->
+          <div id="resource-gate-playbook">
+            <form id="resourceForm-playbook" onsubmit="handleResourceSubmit(event, 'playbook')" style="display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-end;">
+              <div style="flex: 1; min-width: 200px;">
+                <label style="font-family: var(--body); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); display: block; margin-bottom: 4px;">Email</label>
+                <input type="email" name="email" required placeholder="you@example.com" style="width: 100%; padding: 10px 12px; font-family: var(--body); font-size: 14px; border: 1px solid var(--slab); background: var(--print); color: var(--pitch); outline: none;">
+              </div>
+              <button type="submit" class="resource-cta" style="border: none; cursor: pointer; white-space: nowrap;">Get Free Download</button>
+            </form>
+            <p style="font-family: var(--body); font-size: 11px; color: var(--stone); margin-top: 8px;">You'll also receive From The Floor Up every Tuesday. Unsubscribe anytime.</p>
+          </div>
+
+          <!-- Download revealed after email submit -->
+          <div id="resource-download-playbook" style="display: none;">
+            <div style="background: var(--pitch); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <p style="font-family: var(--body); font-size: 12px; font-weight: 500; color: var(--strike); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px;">You're in.</p>
+                <p style="font-family: var(--body); font-size: 13px; color: var(--slab);">Your playbook is ready. Check your inbox for Tuesday's newsletter.</p>
+              </div>
+              <a href="social-proof-playbook.pdf" class="resource-cta" download>Download Now</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
