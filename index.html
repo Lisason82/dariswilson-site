@@ -1012,6 +1012,12 @@
       <p class="stone">New issues publish every Tuesday morning. Subscribe at <a href="https://fromthefloorup.co" target="_blank" style="color: var(--strike); text-decoration: underline; text-underline-offset: 3px;">fromthefloorup.co</a> to get them in your inbox.</p>
 
       <div class="archive-grid">
+        <div class="archive-card" onclick="showArticle('issue-009')">
+          <p class="archive-card-meta">Issue 009 &middot; May 5, 2026 &middot; 5 min read</p>
+          <h3>Your Past Clients Still Trust You</h3>
+          <p>Most past clients didn't leave because they were unhappy with the work, life got busy and your service quietly slipped off the calendar. The 3-touch sequence I ran at JCF, rebuilt as a universal playbook any service business can plug into.</p>
+          <span class="read-link">Read &rarr;</span>
+        </div>
         <div class="archive-card" onclick="showArticle('issue-008')">
           <p class="archive-card-meta">Issue 008 &middot; April 28, 2026 &middot; 5 min read</p>
           <h3>Three C's of Hiring</h3>
@@ -1072,6 +1078,36 @@
       <p class="stone">Practical frameworks and planners built from real experience running service businesses. Enter your email to get instant access and start receiving From The Floor Up every Tuesday.</p>
 
       <div class="resources-grid">
+        <div class="resource-card">
+          <p class="resource-card-label">Lead Generation</p>
+          <h3>The Reactivation Campaign Playbook</h3>
+          <p>A 3-touch sequence to bring past clients back, plug-and-play for any service-based business. Includes the snail mail letter, the four-day email follow-up, the phone script with branching responses for yes, "let me think," and no, a tracking sheet, and industry adaptations for stagers, coaches, agencies, salons, fitness, and trades. All placeholders are marked so you can drop in your business name, offer, deadline, and contact info and run it inside the next 30 days.</p>
+          <p class="resource-card-meta">PDF &middot; Branded &middot; Plug-and-Play</p>
+
+          <!-- Email gate: form shown, download hidden -->
+          <div id="resource-gate-reactivation">
+            <form id="resourceForm-reactivation" onsubmit="handleResourceSubmit(event, 'reactivation')" style="display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-end;">
+              <div style="flex: 1; min-width: 200px;">
+                <label style="font-family: var(--body); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); display: block; margin-bottom: 4px;">Email</label>
+                <input type="email" name="email" required placeholder="you@example.com" style="width: 100%; padding: 10px 12px; font-family: var(--body); font-size: 14px; border: 1px solid var(--slab); background: var(--print); color: var(--pitch); outline: none;">
+              </div>
+              <button type="submit" class="resource-cta" style="border: none; cursor: pointer; white-space: nowrap;">Get Free Download</button>
+            </form>
+            <p style="font-family: var(--body); font-size: 11px; color: var(--stone); margin-top: 8px;">You'll also receive From The Floor Up every Tuesday. Unsubscribe anytime.</p>
+          </div>
+
+          <!-- Download revealed after email submit -->
+          <div id="resource-download-reactivation" style="display: none;">
+            <div style="background: var(--pitch); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <p style="font-family: var(--body); font-size: 12px; font-weight: 500; color: var(--strike); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px;">You're in.</p>
+                <p style="font-family: var(--body); font-size: 13px; color: var(--slab);">Your playbook is ready. Check your inbox for Tuesday's newsletter.</p>
+              </div>
+              <a href="reactivation-campaign-playbook.pdf" class="resource-cta" download>Download Now</a>
+            </div>
+          </div>
+        </div>
+
         <div class="resource-card">
           <p class="resource-card-label">Lead Generation</p>
           <h3>Lead Capture Planner</h3>
@@ -1206,6 +1242,48 @@
   </div><!-- /homeView -->
 
   <!-- ARTICLE VIEWS -->
+
+  <!-- Issue 009 -->
+  <div class="article-view" id="issue-009">
+    <a class="article-back" onclick="showHome(); return false;">&larr; Back to Archive</a>
+    <p class="article-meta">Issue 009 &middot; May 5, 2026 &middot; 5 min read</p>
+    <h1>Your Past Clients Still Trust You</h1>
+
+    <span class="article-section-label">From the Floor</span>
+    <p>This week I was on a coaching call with Mandi, one of my staging clients, and we were starting to map out the marketing phase of her work with me. We're still in the middle of building her CEO identity, and that's the foundation for everything else, but we'd been circling for a few weeks around how leveraged she is on a single source of leads, and it was time to put a real plan around it.</p>
+    <p>In home staging, almost every owner I've worked with is at or near 100 percent referrals from real estate agents. The flow looks clean from the outside, the agent gets a new listing and the staging follows, and when those calls slow down during real estate's quieter months the whole business slows down with them.</p>
+    <p>We were talking about building lead generation systems for her, and how those systems have to nurture two relationships at once. The agent matters because the agent is the booker, and the seller matters too, because the seller is in the house, walking the rooms, talking to friends and family about the work, and pulling out their phone to take photos whether you want them to or not. There's a real audience there that most stagers walk past on their way back to the truck.</p>
+    <p>That conversation got me thinking about reactivation, and the role it played for me at JCF. We built reactivation into every flagship launch on purpose, because we wanted to grow the size of our early bird registrations without leaning entirely on cold marketing to do it. I told Mandi about the campaign, the three touches we ran, and what surprised me about the results. The past clients we brought back didn't only buy the early bird offer, they re-entered the funnel for our flagship programs, and many of them quietly became some of our best long-term members again.</p>
+    <p>Same person at a different season of life, and they came back when we gave them a reason and a deadline.</p>
+    <p>That's the lesson I want to put in your hands today.</p>
+
+    <span class="article-section-label">The System</span>
+    <p><strong>Your past clients are the easiest leads in your business, and most owners ignore them.</strong></p>
+    <p>Most service businesses lose past clients quietly. They don't fire you, they don't post a complaint, they just stop showing up because life got busy, the schedule shifted, the priorities reshuffled, and your service slipped off the calendar. The story we tell ourselves is that they left because they were unhappy with the work, and that's almost never the real reason. Inside my fitness business the data made this clear year after year. When I ran a reactivation campaign on past clients from the prior 24 to 36 months, 20 to 30 percent of our early bird registrations came from that list every time. These were people I had already worked with and who already trusted me, and they came back because we gave them a reason and a deadline.</p>
+    <p>Here's what made it run as a system, not a one-off blast.</p>
+    <p><strong>One offer with a real deadline.</strong> We picked our flagship transformation challenge as the bribe, dropped the price to 50 percent off for past clients, and gave them a hard response date that landed before the program start date. That deadline did most of the closing work, because past clients respond to a real deadline far more than they respond to an open invitation, and most reactivation messaging makes the mistake of leaving the door open without giving anyone a reason to walk through it this week.</p>
+    <p><strong>Three touches, in this order.</strong> We mailed a physical letter first, because almost no one mails letters anymore and yours stands out the moment it hits the mailbox. Four days after the letter dropped, an email went out that referenced the letter directly, so the inbox felt like a continuation of the conversation already in motion. The day after the email, my team and I made phone calls, and the call was where the bulk of the conversions happened, because the rapport from the prior relationship was already in the room.</p>
+    <p><strong>A commitment-first ask.</strong> The CTA in the letter and the email was not "buy now," it was "call me to claim your spot." That meant the easy yeses came in fast and my team could close them while I spent my time on the warmer, more nuanced conversations that needed me directly. A commitment is a hand raise, and a hand raise is a much shorter walk to a paid client than a cold inquiry from someone who has never worked with you before.</p>
+    <p>The other piece worth naming is what happens after the reactivation. The person who came back for the early bird offer is now back inside your funnel, and the path from "reactivated for the discounted offer" to "re-enrolled in the flagship program" is a much easier close than from "stranger" to "client." This is how you can keep the funnel full during your slower months without buying new traffic, and the structure works for stagers, coaches, salons, agencies, fitness, and any service where you've built a real relationship with a client at some point in the past.</p>
+
+    <span class="article-section-label">In My Stack</span>
+    <p>The reactivation sequence itself is what I'm putting in your hands this week. I rebuilt the original 3-touch campaign I ran at JCF as a universal playbook any service-based business can plug into. It includes the snail mail letter, the email follow-up, the phone script with branching responses, a tracking sheet, and industry adaptations for stagers, coaches, agencies, salons, fitness, and trades. All the placeholders are clearly marked so you can drop in your business name, your offer, your deadline, and your contact info, and run it inside the next 30 days.</p>
+    <p><a href="#resources" style="color: var(--strike); text-decoration: underline; text-underline-offset: 3px;">Click here to access the Reactivation Campaign Playbook</a> in the Free Resources section below.</p>
+
+    <div class="ask-box">
+      <p>If I ran a reactivation campaign, what program, package, or service would I use? What would be the outcome promised? And what would be included?</p>
+    </div>
+
+    <span class="article-section-label">One Thing This Week</span>
+    <div class="one-thing">
+      <p>Pull the list. Don't pick the offer yet, don't write the copy yet, don't worry about the deadline yet, just build a clean list of every client you've worked with in the last 24 to 36 months who is no longer active, with their name, mailing address, email, and phone number in one place. The list is the system, and most service business owners don't actually have one.</p>
+    </div>
+
+    <div class="sign-off">
+      <p>Daris</p>
+      <p>Founder, From The Floor Up &middot; <a href="https://fromthefloorup.co" target="_blank" style="color: var(--strike);">fromthefloorup.co</a></p>
+    </div>
+  </div>
 
   <!-- Issue 008 -->
   <div class="article-view" id="issue-008">
