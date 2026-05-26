@@ -311,6 +311,122 @@
   .issue-body h3 { font-size: 18px; margin-bottom: 6px; }
   .issue-body p { margin: 0; font-size: 14px; color: var(--pitch); line-height: 1.55; }
   .issue-magnet { font-family: var(--display); font-style: italic; font-size: 14px; color: var(--stone); padding-top: 4px; }
+  .magnet-link {
+    color: var(--strike);
+    text-decoration: none;
+    font-weight: 500;
+    font-style: italic;
+    transition: opacity 0.15s ease;
+    cursor: pointer;
+  }
+  .magnet-link:hover { opacity: 0.7; }
+
+  /* ── EMAIL-GATE MODAL ── */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(17, 17, 16, 0.78);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .modal-overlay.is-open { display: flex; }
+  .modal-card {
+    background: var(--print);
+    max-width: 480px;
+    width: 100%;
+    padding: 40px 36px 32px;
+    position: relative;
+    border-left: 4px solid var(--strike);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  }
+  .modal-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: transparent;
+    border: 0;
+    font-size: 22px;
+    color: var(--stone);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    line-height: 1;
+    padding: 0;
+  }
+  .modal-close:hover { color: var(--pitch); }
+  .modal-eyebrow {
+    font-family: var(--body);
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--strike);
+    margin-bottom: 12px;
+  }
+  .modal-card h3 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--pitch);
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+  .modal-card p {
+    font-family: var(--body);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--pitch);
+    margin: 0 0 18px;
+  }
+  .modal-card form { display: flex; flex-direction: column; gap: 10px; }
+  .modal-card input[type="email"] {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: var(--body);
+    font-size: 14px;
+    border: 1px solid var(--slab);
+    background: var(--white);
+    color: var(--pitch);
+    outline: none;
+  }
+  .modal-card input[type="email"]:focus { border-color: var(--strike); }
+  .modal-card button[type="submit"] {
+    background: var(--pitch);
+    color: var(--print);
+    font-family: var(--body);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 14px 18px;
+    border: 0;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .modal-card button[type="submit"]:hover { background: var(--strike); color: var(--pitch); }
+  .modal-note {
+    font-size: 11px !important;
+    color: var(--stone) !important;
+    margin-top: 10px !important;
+  }
+  .modal-download-btn {
+    display: inline-block;
+    background: var(--strike);
+    color: var(--pitch);
+    font-family: var(--body);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 14px 22px;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+  .modal-download-btn:hover { opacity: 0.9; }
   .issue-date { font-family: var(--body); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone); padding-top: 8px; text-align: right; }
 
   /* ── PLAYBOOK CALLOUT ── */
@@ -519,7 +635,7 @@
           <h3>The Marketing Work Most People Skip</h3>
           <p>The audit move that has to come before any channel. Plus the three-question customer interview I run on every client.</p>
         </div>
-        <div class="issue-magnet">3-Question Interview (in issue)</div>
+        <div class="issue-magnet"><a href="https://fromthefloorup.co/#issue-011" class="magnet-link" target="_blank" rel="noopener">Read in archive &rarr;</a></div>
         <div class="issue-date">May 19 · Sent</div>
       </div>
 
@@ -529,7 +645,7 @@
           <h3>The Offer Architecture</h3>
           <p>Front-end vs core offer. Most local businesses lose money selling the big offer to a cold market.</p>
         </div>
-        <div class="issue-magnet">The Front-End Offer Designer</div>
+        <div class="issue-magnet"><a href="#" class="magnet-link" onclick="openFeoModal(event)">The Front-End Offer Designer &rarr;</a></div>
         <div class="issue-date">May 26</div>
       </div>
 
@@ -678,6 +794,107 @@
     <div><a href="/">fromthefloorup.co</a></div>
   </div>
 </footer>
+
+<!-- ════════════ EMAIL-GATE MODAL ════════════ -->
+<div id="feo-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="feo-modal-title">
+  <div class="modal-card">
+    <button type="button" class="modal-close" onclick="closeFeoModal()" aria-label="Close">&times;</button>
+
+    <div id="feo-form-state">
+      <div class="modal-eyebrow">Free Download &nbsp;·&nbsp; HMYLB Part 1</div>
+      <h3 id="feo-modal-title">The Front-End Offer Designer</h3>
+      <p>Drop your email and the playbook is yours. You'll also get the rest of the How to Market Your Local Business series every Tuesday morning.</p>
+      <form id="feoEmailForm" onsubmit="return handleFeoSubmit(event)">
+        <input type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+        <button type="submit">Send me the playbook</button>
+      </form>
+      <p class="modal-note">One email a week. Unsubscribe anytime.</p>
+    </div>
+
+    <div id="feo-success-state" style="display: none;">
+      <div class="modal-eyebrow" style="color: var(--strike);">You're in.</div>
+      <h3>The playbook is ready.</h3>
+      <p>I've added you to the list and the first issue lands in your inbox Tuesday morning. Click below to download the playbook now.</p>
+      <a href="front-end-offer-designer.pdf" download class="modal-download-btn">Download the playbook</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openFeoModal(e) {
+    if (e) e.preventDefault();
+    document.getElementById('feo-form-state').style.display = 'block';
+    document.getElementById('feo-success-state').style.display = 'none';
+    document.getElementById('feo-modal').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() {
+      var input = document.querySelector('#feoEmailForm input[name="email"]');
+      if (input) input.focus();
+    }, 100);
+  }
+
+  function closeFeoModal() {
+    document.getElementById('feo-modal').classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  function handleFeoSubmit(e) {
+    e.preventDefault();
+    var email = e.target.email.value;
+
+    // Hidden iframe target so the form submit doesn't navigate the page
+    var iframe = document.createElement('iframe');
+    iframe.name = 'feo-beehiiv-iframe-' + Date.now();
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    // Hidden form POSTs to the HMYLB Beehiiv form
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://subscribe-forms.beehiiv.com/55701a6d-634f-4b37-9418-5739527e13c0';
+    form.target = iframe.name;
+    form.style.display = 'none';
+
+    var emailInput = document.createElement('input');
+    emailInput.type = 'email';
+    emailInput.name = 'email';
+    emailInput.value = email;
+    form.appendChild(emailInput);
+
+    document.body.appendChild(form);
+    form.submit();
+
+    // Show success state after a short delay so the submit fires
+    setTimeout(function() {
+      document.getElementById('feo-form-state').style.display = 'none';
+      document.getElementById('feo-success-state').style.display = 'block';
+      if (form.parentNode) form.parentNode.removeChild(form);
+      setTimeout(function() {
+        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+      }, 3000);
+    }, 450);
+
+    return false;
+  }
+
+  // Close on ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      var modal = document.getElementById('feo-modal');
+      if (modal && modal.classList.contains('is-open')) closeFeoModal();
+    }
+  });
+
+  // Close on backdrop click
+  document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById('feo-modal');
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeFeoModal();
+      });
+    }
+  });
+</script>
 
 <!-- ════════════ BEEHIIV ATTRIBUTION ════════════ -->
 <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
