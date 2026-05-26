@@ -1,0 +1,7 @@
+# Netlify redirects for fromthefloorup.co
+# Format: <from-path>   <to-url>   <status-code>
+# 302 = temporary redirect (browsers don't cache long-term, easy to swap later)
+
+# Booking scheduler — hosted on Lovable
+/book              https://ftfu-book.lovable.app/             302!
+/book/*            https://ftfu-book.lovable.app/:splat       302!
