@@ -672,8 +672,11 @@
           <h3>Profiles &amp; Listings</h3>
           <p>Google Business Profile, Apple Maps, Bing Places, Facebook, Nextdoor, Yelp. The free channels that compound the longer you tend them.</p>
         </div>
-        <div class="issue-magnet">The Local Business Profile Audit</div>
-        <div class="issue-date">June 9</div>
+        <div class="issue-magnet">
+          <a href="https://fromthefloorup.co/#issue-014" class="magnet-link" target="_blank" rel="noopener">Read in archive &rarr;</a><br>
+          <a href="#" class="magnet-link" onclick="openPlcModal(event)">The Local Business Profile Audit &rarr;</a>
+        </div>
+        <div class="issue-date">June 9 &middot; Sent</div>
       </div>
 
       <div class="issue-row">
@@ -862,6 +865,31 @@
   </div>
 </div>
 
+<!-- ════════════ EMAIL-GATE MODAL — PLC (Playbook 03) ════════════ -->
+<div id="plc-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="plc-modal-title">
+  <div class="modal-card">
+    <button type="button" class="modal-close" onclick="closePlcModal()" aria-label="Close">&times;</button>
+
+    <div id="plc-form-state">
+      <div class="modal-eyebrow">Free Download &nbsp;·&nbsp; HMYLB Part 3</div>
+      <h3 id="plc-modal-title">The Local Business Profile Audit</h3>
+      <p>Drop your email and the playbook is yours. The Complete Listing Standard plus a scored self-audit. You'll also get the rest of the How to Market Your Local Business series every Tuesday morning.</p>
+      <form id="plcEmailForm" onsubmit="return handlePlcSubmit(event)">
+        <input type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+        <button type="submit">Send me the playbook</button>
+      </form>
+      <p class="modal-note">One email a week. Unsubscribe anytime.</p>
+    </div>
+
+    <div id="plc-success-state" style="display: none;">
+      <div class="modal-eyebrow" style="color: var(--strike);">You're in.</div>
+      <h3>The playbook is ready.</h3>
+      <p>I've added you to the list and the next issue lands in your inbox Tuesday morning. Click below to download the playbook now.</p>
+      <a href="profiles-and-listings.pdf" download class="modal-download-btn">Download the playbook</a>
+    </div>
+  </div>
+</div>
+
 <script>
   function openFeoModal(e) {
     if (e) e.preventDefault();
@@ -973,17 +1001,73 @@
     return false;
   }
 
-  // Close on ESC (both modals)
+  // ─────────── PLC MODAL (Playbook 03) ───────────
+  function openPlcModal(e) {
+    if (e) e.preventDefault();
+    document.getElementById('plc-form-state').style.display = 'block';
+    document.getElementById('plc-success-state').style.display = 'none';
+    document.getElementById('plc-modal').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() {
+      var input = document.querySelector('#plcEmailForm input[name="email"]');
+      if (input) input.focus();
+    }, 100);
+  }
+
+  function closePlcModal() {
+    document.getElementById('plc-modal').classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  function handlePlcSubmit(e) {
+    e.preventDefault();
+    var email = e.target.email.value;
+
+    var iframe = document.createElement('iframe');
+    iframe.name = 'plc-beehiiv-iframe-' + Date.now();
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://subscribe-forms.beehiiv.com/55701a6d-634f-4b37-9418-5739527e13c0';
+    form.target = iframe.name;
+    form.style.display = 'none';
+
+    var emailInput = document.createElement('input');
+    emailInput.type = 'email';
+    emailInput.name = 'email';
+    emailInput.value = email;
+    form.appendChild(emailInput);
+
+    document.body.appendChild(form);
+    form.submit();
+
+    setTimeout(function() {
+      document.getElementById('plc-form-state').style.display = 'none';
+      document.getElementById('plc-success-state').style.display = 'block';
+      if (form.parentNode) form.parentNode.removeChild(form);
+      setTimeout(function() {
+        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+      }, 3000);
+    }, 450);
+
+    return false;
+  }
+
+  // Close on ESC (all modals)
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       var feo = document.getElementById('feo-modal');
       if (feo && feo.classList.contains('is-open')) closeFeoModal();
       var laca = document.getElementById('laca-modal');
       if (laca && laca.classList.contains('is-open')) closeLacaModal();
+      var plc = document.getElementById('plc-modal');
+      if (plc && plc.classList.contains('is-open')) closePlcModal();
     }
   });
 
-  // Close on backdrop click (both modals)
+  // Close on backdrop click (all modals)
   document.addEventListener('DOMContentLoaded', function() {
     var feo = document.getElementById('feo-modal');
     if (feo) {
@@ -995,6 +1079,12 @@
     if (laca) {
       laca.addEventListener('click', function(e) {
         if (e.target === laca) closeLacaModal();
+      });
+    }
+    var plc = document.getElementById('plc-modal');
+    if (plc) {
+      plc.addEventListener('click', function(e) {
+        if (e.target === plc) closePlcModal();
       });
     }
   });
