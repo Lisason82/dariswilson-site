@@ -682,51 +682,44 @@
       <div class="issue-row">
         <div class="issue-num">04</div>
         <div class="issue-body">
-          <h3>Events for Awareness</h3>
-          <p>Hosted, sponsored, co-hosted events. When to spend, throw, or show up.</p>
+          <h3>Workshops &amp; Masterclasses</h3>
+          <p>The educational event, the highest-converting room a local business can run. Free workshops fill your list, paid info sessions turn a warm room into customers.</p>
         </div>
-        <div class="issue-magnet">The Local Event Playbook</div>
-        <div class="issue-date">June 16</div>
+        <div class="issue-magnet">
+          <a href="https://fromthefloorup.co/#issue-015" class="magnet-link" target="_blank" rel="noopener">Read in archive &rarr;</a><br>
+          <a href="#" class="magnet-link" onclick="openWtsModal(event)">The Workshop That Sells &rarr;</a>
+        </div>
+        <div class="issue-date">June 16 &middot; Sent</div>
       </div>
 
       <div class="issue-row">
         <div class="issue-num">05</div>
         <div class="issue-body">
-          <h3>Workshops &amp; Masterclasses</h3>
-          <p>The educational event. Highest-converting channel for almost any local business.</p>
+          <h3>The Local Digital Engine</h3>
+          <p>Meta ads, Google ads, social presence, and retargeting. The dynamic layer that converts warm into hot when the static foundation is doing its job.</p>
         </div>
-        <div class="issue-magnet">The Workshop Blueprint</div>
+        <div class="issue-magnet">The Local Digital Engine Audit</div>
         <div class="issue-date">June 23</div>
       </div>
 
       <div class="issue-row">
         <div class="issue-num">06</div>
         <div class="issue-body">
-          <h3>The Local Digital Engine</h3>
-          <p>Meta ads, Google ads, social presence, and retargeting. The dynamic layer that converts warm into hot when the static foundation is doing its job.</p>
+          <h3>Networking, Partnerships &amp; Referrals</h3>
+          <p>The relational channels. Borrowed trust and word-of-mouth as a compounding growth engine.</p>
         </div>
-        <div class="issue-magnet">The Local Digital Engine Audit</div>
+        <div class="issue-magnet">The Partnership Pitch Pack</div>
         <div class="issue-date">June 30</div>
       </div>
 
       <div class="issue-row">
         <div class="issue-num">07</div>
         <div class="issue-body">
-          <h3>Networking, Partnerships &amp; Referrals</h3>
-          <p>The relational channels. Borrowed trust and word-of-mouth as a compounding growth engine.</p>
-        </div>
-        <div class="issue-magnet">The Partnership Pitch Pack</div>
-        <div class="issue-date">July 7</div>
-      </div>
-
-      <div class="issue-row">
-        <div class="issue-num issue-num-bonus">B</div>
-        <div class="issue-body">
           <h3>Conversion + Retention</h3>
           <p>Email, retargeting your customer list, offer mechanics, and LTV math. The back-end that turns first-time buyers into repeat customers.</p>
         </div>
         <div class="issue-magnet">The Conversion + LTV Calculator</div>
-        <div class="issue-date">July 14 &middot; Bonus</div>
+        <div class="issue-date">July 7</div>
       </div>
 
     </div>
@@ -740,7 +733,7 @@
       <div>
         <div class="eyebrow"><span class="strike-dot"></span>The Bundled Resource</div>
         <h2>The Local Business Marketing Playbook.</h2>
-        <p>At the end of the series, every resource gets bundled into a single playbook delivered to your inbox. Front-end offer designer, awareness channel audit, profile checklist, event playbook, workshop blueprint, digital engine audit, partnership pitch pack, and the conversion plus LTV calculator. One file. Free. Subscribers only.</p>
+        <p>At the end of the series, every resource gets bundled into a single playbook delivered to your inbox. Front-end offer designer, awareness channel audit, profile checklist, the workshop that sells, digital engine audit, partnership pitch pack, and the conversion plus LTV calculator. One file. Free. Subscribers only.</p>
       </div>
       <div class="mock">
         <div class="mock-eyebrow">From The Floor Up &nbsp;·&nbsp; Playbook</div>
@@ -886,6 +879,31 @@
       <h3>The playbook is ready.</h3>
       <p>I've added you to the list and the next issue lands in your inbox Tuesday morning. Click below to download the playbook now.</p>
       <a href="profiles-and-listings.pdf" download class="modal-download-btn">Download the playbook</a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ EMAIL-GATE MODAL — WTS (Playbook 04) ════════════ -->
+<div id="wts-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="wts-modal-title">
+  <div class="modal-card">
+    <button type="button" class="modal-close" onclick="closeWtsModal()" aria-label="Close">&times;</button>
+
+    <div id="wts-form-state">
+      <div class="modal-eyebrow">Free Download &nbsp;·&nbsp; HMYLB Part 4</div>
+      <h3 id="wts-modal-title">The Workshop That Sells</h3>
+      <p>Drop your email and the playbook is yours. The four moves to fill a room and turn it into customers, with the slide structure, the refundable-fee filter, and the ad copy. You'll also get the rest of the How to Market Your Local Business series every Tuesday morning.</p>
+      <form id="wtsEmailForm" onsubmit="return handleWtsSubmit(event)">
+        <input type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+        <button type="submit">Send me the playbook</button>
+      </form>
+      <p class="modal-note">One email a week. Unsubscribe anytime.</p>
+    </div>
+
+    <div id="wts-success-state" style="display: none;">
+      <div class="modal-eyebrow" style="color: var(--strike);">You're in.</div>
+      <h3>The playbook is ready.</h3>
+      <p>I've added you to the list and the next issue lands in your inbox Tuesday morning. Click below to download the playbook now.</p>
+      <a href="the-workshop-that-sells.pdf" download class="modal-download-btn">Download the playbook</a>
     </div>
   </div>
 </div>
@@ -1055,6 +1073,60 @@
     return false;
   }
 
+  // ─────────── WTS MODAL (Playbook 04) ───────────
+  function openWtsModal(e) {
+    if (e) e.preventDefault();
+    document.getElementById('wts-form-state').style.display = 'block';
+    document.getElementById('wts-success-state').style.display = 'none';
+    document.getElementById('wts-modal').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() {
+      var input = document.querySelector('#wtsEmailForm input[name="email"]');
+      if (input) input.focus();
+    }, 100);
+  }
+
+  function closeWtsModal() {
+    document.getElementById('wts-modal').classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  function handleWtsSubmit(e) {
+    e.preventDefault();
+    var email = e.target.email.value;
+
+    var iframe = document.createElement('iframe');
+    iframe.name = 'wts-beehiiv-iframe-' + Date.now();
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://subscribe-forms.beehiiv.com/55701a6d-634f-4b37-9418-5739527e13c0';
+    form.target = iframe.name;
+    form.style.display = 'none';
+
+    var emailInput = document.createElement('input');
+    emailInput.type = 'email';
+    emailInput.name = 'email';
+    emailInput.value = email;
+    form.appendChild(emailInput);
+
+    document.body.appendChild(form);
+    form.submit();
+
+    setTimeout(function() {
+      document.getElementById('wts-form-state').style.display = 'none';
+      document.getElementById('wts-success-state').style.display = 'block';
+      if (form.parentNode) form.parentNode.removeChild(form);
+      setTimeout(function() {
+        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+      }, 3000);
+    }, 450);
+
+    return false;
+  }
+
   // Close on ESC (all modals)
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
@@ -1064,6 +1136,8 @@
       if (laca && laca.classList.contains('is-open')) closeLacaModal();
       var plc = document.getElementById('plc-modal');
       if (plc && plc.classList.contains('is-open')) closePlcModal();
+      var wts = document.getElementById('wts-modal');
+      if (wts && wts.classList.contains('is-open')) closeWtsModal();
     }
   });
 
@@ -1085,6 +1159,12 @@
     if (plc) {
       plc.addEventListener('click', function(e) {
         if (e.target === plc) closePlcModal();
+      });
+    }
+    var wts = document.getElementById('wts-modal');
+    if (wts) {
+      wts.addEventListener('click', function(e) {
+        if (e.target === wts) closeWtsModal();
       });
     }
   });
