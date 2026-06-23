@@ -696,10 +696,13 @@
         <div class="issue-num">05</div>
         <div class="issue-body">
           <h3>The Local Digital Engine</h3>
-          <p>Meta ads, Google ads, social presence, and retargeting. The dynamic layer that converts warm into hot when the static foundation is doing its job.</p>
+          <p>The Meta ad ladder for local, cold strangers, the warm middle who looked and didn't buy, and your own customer list, plus the profile that makes the click worth it. Google gets one honest line.</p>
         </div>
-        <div class="issue-magnet">The Local Digital Engine Audit</div>
-        <div class="issue-date">June 23</div>
+        <div class="issue-magnet">
+          <a href="https://fromthefloorup.co/#issue-016" class="magnet-link" target="_blank" rel="noopener">Read in archive &rarr;</a><br>
+          <a href="#" class="magnet-link" onclick="openTacModal(event)">Turn Ads Into Customers &rarr;</a>
+        </div>
+        <div class="issue-date">June 23 &middot; Sent</div>
       </div>
 
       <div class="issue-row">
@@ -733,7 +736,7 @@
       <div>
         <div class="eyebrow"><span class="strike-dot"></span>The Bundled Resource</div>
         <h2>The Local Business Marketing Playbook.</h2>
-        <p>At the end of the series, every resource gets bundled into a single playbook delivered to your inbox. Front-end offer designer, awareness channel audit, profile checklist, the workshop that sells, digital engine audit, partnership pitch pack, and the conversion plus LTV calculator. One file. Free. Subscribers only.</p>
+        <p>At the end of the series, every resource gets bundled into a single playbook delivered to your inbox. Front-end offer designer, awareness channel audit, profile checklist, the workshop that sells, turn ads into customers, partnership pitch pack, and the conversion plus LTV calculator. One file. Free. Subscribers only.</p>
       </div>
       <div class="mock">
         <div class="mock-eyebrow">From The Floor Up &nbsp;·&nbsp; Playbook</div>
@@ -904,6 +907,31 @@
       <h3>The playbook is ready.</h3>
       <p>I've added you to the list and the next issue lands in your inbox Tuesday morning. Click below to download the playbook now.</p>
       <a href="the-workshop-that-sells.pdf" download class="modal-download-btn">Download the playbook</a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ EMAIL-GATE MODAL — TAC (Playbook 05) ════════════ -->
+<div id="tac-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="tac-modal-title">
+  <div class="modal-card">
+    <button type="button" class="modal-close" onclick="closeTacModal()" aria-label="Close">&times;</button>
+
+    <div id="tac-form-state">
+      <div class="modal-eyebrow">Free Download &nbsp;·&nbsp; HMYLB Part 5</div>
+      <h3 id="tac-modal-title">Turn Ads Into Customers</h3>
+      <p>Drop your email and the playbook is yours. The build behind a local Meta engine, the pixel and key events, the audiences that do your targeting, the local radius setup, and the cold, warm, and customer ads with a budget to start each. You'll also get the rest of the How to Market Your Local Business series every Tuesday morning.</p>
+      <form id="tacEmailForm" onsubmit="return handleTacSubmit(event)">
+        <input type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+        <button type="submit">Send me the playbook</button>
+      </form>
+      <p class="modal-note">One email a week. Unsubscribe anytime.</p>
+    </div>
+
+    <div id="tac-success-state" style="display: none;">
+      <div class="modal-eyebrow" style="color: var(--strike);">You're in.</div>
+      <h3>The playbook is ready.</h3>
+      <p>I've added you to the list and the next issue lands in your inbox Tuesday morning. Click below to download the playbook now.</p>
+      <a href="turn-ads-into-customers.pdf" download class="modal-download-btn">Download the playbook</a>
     </div>
   </div>
 </div>
@@ -1127,6 +1155,60 @@
     return false;
   }
 
+  // ─────────── TAC MODAL (Playbook 05) ───────────
+  function openTacModal(e) {
+    if (e) e.preventDefault();
+    document.getElementById('tac-form-state').style.display = 'block';
+    document.getElementById('tac-success-state').style.display = 'none';
+    document.getElementById('tac-modal').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() {
+      var input = document.querySelector('#tacEmailForm input[name="email"]');
+      if (input) input.focus();
+    }, 100);
+  }
+
+  function closeTacModal() {
+    document.getElementById('tac-modal').classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  function handleTacSubmit(e) {
+    e.preventDefault();
+    var email = e.target.email.value;
+
+    var iframe = document.createElement('iframe');
+    iframe.name = 'tac-beehiiv-iframe-' + Date.now();
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://subscribe-forms.beehiiv.com/55701a6d-634f-4b37-9418-5739527e13c0';
+    form.target = iframe.name;
+    form.style.display = 'none';
+
+    var emailInput = document.createElement('input');
+    emailInput.type = 'email';
+    emailInput.name = 'email';
+    emailInput.value = email;
+    form.appendChild(emailInput);
+
+    document.body.appendChild(form);
+    form.submit();
+
+    setTimeout(function() {
+      document.getElementById('tac-form-state').style.display = 'none';
+      document.getElementById('tac-success-state').style.display = 'block';
+      if (form.parentNode) form.parentNode.removeChild(form);
+      setTimeout(function() {
+        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+      }, 3000);
+    }, 450);
+
+    return false;
+  }
+
   // Close on ESC (all modals)
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
@@ -1138,6 +1220,8 @@
       if (plc && plc.classList.contains('is-open')) closePlcModal();
       var wts = document.getElementById('wts-modal');
       if (wts && wts.classList.contains('is-open')) closeWtsModal();
+      var tac = document.getElementById('tac-modal');
+      if (tac && tac.classList.contains('is-open')) closeTacModal();
     }
   });
 
@@ -1165,6 +1249,12 @@
     if (wts) {
       wts.addEventListener('click', function(e) {
         if (e.target === wts) closeWtsModal();
+      });
+    }
+    var tac = document.getElementById('tac-modal');
+    if (tac) {
+      tac.addEventListener('click', function(e) {
+        if (e.target === tac) closeTacModal();
       });
     }
   });
