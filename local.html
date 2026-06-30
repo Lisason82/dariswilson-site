@@ -708,11 +708,14 @@
       <div class="issue-row">
         <div class="issue-num">06</div>
         <div class="issue-body">
-          <h3>Networking, Partnerships &amp; Referrals</h3>
-          <p>The relational channels. Borrowed trust and word-of-mouth as a compounding growth engine.</p>
+          <h3>Referrals and Partnerships</h3>
+          <p>The cheapest customers come from people who already trust you. The referral ask built into the close, the card that captures the lead, and the partner who funds your customer rewards.</p>
         </div>
-        <div class="issue-magnet">The Partnership Pitch Pack</div>
-        <div class="issue-date">June 30</div>
+        <div class="issue-magnet">
+          <a href="https://fromthefloorup.co/#issue-017" class="magnet-link" target="_blank" rel="noopener">Read in archive &rarr;</a><br>
+          <a href="#" class="magnet-link" onclick="openTcrModal(event)">Turn Customers Into Referrals &rarr;</a>
+        </div>
+        <div class="issue-date">June 30 &middot; Sent</div>
       </div>
 
       <div class="issue-row">
@@ -736,7 +739,7 @@
       <div>
         <div class="eyebrow"><span class="strike-dot"></span>The Bundled Resource</div>
         <h2>The Local Business Marketing Playbook.</h2>
-        <p>At the end of the series, every resource gets bundled into a single playbook delivered to your inbox. Front-end offer designer, awareness channel audit, profile checklist, the workshop that sells, turn ads into customers, partnership pitch pack, and the conversion plus LTV calculator. One file. Free. Subscribers only.</p>
+        <p>At the end of the series, every resource gets bundled into a single playbook delivered to your inbox. Front-end offer designer, awareness channel audit, profile checklist, the workshop that sells, turn ads into customers, turn customers into referrals, and the conversion plus LTV calculator. One file. Free. Subscribers only.</p>
       </div>
       <div class="mock">
         <div class="mock-eyebrow">From The Floor Up &nbsp;·&nbsp; Playbook</div>
@@ -932,6 +935,31 @@
       <h3>The playbook is ready.</h3>
       <p>I've added you to the list and the next issue lands in your inbox Tuesday morning. Click below to download the playbook now.</p>
       <a href="turn-ads-into-customers.pdf" download class="modal-download-btn">Download the playbook</a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ EMAIL-GATE MODAL — TCR (Playbook 06) ════════════ -->
+<div id="tcr-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="tcr-modal-title">
+  <div class="modal-card">
+    <button type="button" class="modal-close" onclick="closeTcrModal()" aria-label="Close">&times;</button>
+
+    <div id="tcr-form-state">
+      <div class="modal-eyebrow">Free Download &nbsp;·&nbsp; HMYLB Part 6</div>
+      <h3 id="tcr-modal-title">Turn Customers Into Referrals</h3>
+      <p>Drop your email and the workbook is yours. The ask to write, the referral card to print, the two follow-up texts and a tracker, and the partner worksheet, so you put the referral engine to work this week. You'll also get the rest of the How to Market Your Local Business series every Tuesday morning.</p>
+      <form id="tcrEmailForm" onsubmit="return handleTcrSubmit(event)">
+        <input type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+        <button type="submit">Send me the workbook</button>
+      </form>
+      <p class="modal-note">One email a week. Unsubscribe anytime.</p>
+    </div>
+
+    <div id="tcr-success-state" style="display: none;">
+      <div class="modal-eyebrow" style="color: var(--strike);">You're in.</div>
+      <h3>The workbook is ready.</h3>
+      <p>I've added you to the list and the next issue lands in your inbox Tuesday morning. Click below to download the workbook now.</p>
+      <a href="turn-customers-into-referrals.pdf" download class="modal-download-btn">Download the workbook</a>
     </div>
   </div>
 </div>
@@ -1209,6 +1237,60 @@
     return false;
   }
 
+  // ─────────── TCR MODAL (Playbook 06) ───────────
+  function openTcrModal(e) {
+    if (e) e.preventDefault();
+    document.getElementById('tcr-form-state').style.display = 'block';
+    document.getElementById('tcr-success-state').style.display = 'none';
+    document.getElementById('tcr-modal').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() {
+      var input = document.querySelector('#tcrEmailForm input[name="email"]');
+      if (input) input.focus();
+    }, 100);
+  }
+
+  function closeTcrModal() {
+    document.getElementById('tcr-modal').classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  function handleTcrSubmit(e) {
+    e.preventDefault();
+    var email = e.target.email.value;
+
+    var iframe = document.createElement('iframe');
+    iframe.name = 'tcr-beehiiv-iframe-' + Date.now();
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://subscribe-forms.beehiiv.com/55701a6d-634f-4b37-9418-5739527e13c0';
+    form.target = iframe.name;
+    form.style.display = 'none';
+
+    var emailInput = document.createElement('input');
+    emailInput.type = 'email';
+    emailInput.name = 'email';
+    emailInput.value = email;
+    form.appendChild(emailInput);
+
+    document.body.appendChild(form);
+    form.submit();
+
+    setTimeout(function() {
+      document.getElementById('tcr-form-state').style.display = 'none';
+      document.getElementById('tcr-success-state').style.display = 'block';
+      if (form.parentNode) form.parentNode.removeChild(form);
+      setTimeout(function() {
+        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+      }, 3000);
+    }, 450);
+
+    return false;
+  }
+
   // Close on ESC (all modals)
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
@@ -1222,6 +1304,8 @@
       if (wts && wts.classList.contains('is-open')) closeWtsModal();
       var tac = document.getElementById('tac-modal');
       if (tac && tac.classList.contains('is-open')) closeTacModal();
+      var tcr = document.getElementById('tcr-modal');
+      if (tcr && tcr.classList.contains('is-open')) closeTcrModal();
     }
   });
 
@@ -1255,6 +1339,12 @@
     if (tac) {
       tac.addEventListener('click', function(e) {
         if (e.target === tac) closeTacModal();
+      });
+    }
+    var tcr = document.getElementById('tcr-modal');
+    if (tcr) {
+      tcr.addEventListener('click', function(e) {
+        if (e.target === tcr) closeTcrModal();
       });
     }
   });
