@@ -1031,6 +1031,12 @@
       <p class="stone">New issues publish every Tuesday morning. Subscribe at <a href="https://fromthefloorup.co" target="_blank" style="color: var(--strike); text-decoration: underline; text-underline-offset: 3px;">fromthefloorup.co</a> to get them in your inbox.</p>
 
       <div class="archive-grid">
+        <div class="archive-card" onclick="showArticle('issue-022')">
+          <p class="archive-card-meta">Issue 022 &middot; August 4, 2026 &middot; 4 min read</p>
+          <h3>I Fired My Scheduling Software and Built This</h3>
+          <p>A booking page that started in Lovable, broke across two time zones, and got rebuilt in Claude Code. The workflow map that came before the prompt, and the order that makes AI worth using.</p>
+          <span class="read-link">Read &rarr;</span>
+        </div>
         <div class="archive-card" onclick="showArticle('issue-021')">
           <p class="archive-card-meta">Issue 021 &middot; July 28, 2026 &middot; 3 min read</p>
           <h3>Coach It or Allow It</h3>
@@ -1333,6 +1339,45 @@
   </div><!-- /homeView -->
 
   <!-- ARTICLE VIEWS -->
+
+  <!-- Issue 022 -->
+  <div class="article-view" id="issue-022">
+    <a class="article-back" onclick="showHome(); return false;">&larr; Back to Archive</a>
+    <p class="article-meta">Issue 022 &middot; August 4, 2026 &middot; 4 min read</p>
+    <h1>I Fired My Scheduling Software and Built This</h1>
+
+    <span class="article-section-label">From the Floor</span>
+    <p>When I landed my first coaching client, all the scheduling happened over text. That worked fine right up until clients 2, 3, and 4 showed up with their own calendars, and suddenly I was juggling open slots in my head across 3 different threads.</p>
+    <p>I&rsquo;d been here before. Back in my fitness days I ran Acuity Scheduling, and Calendly before that, so I knew exactly what a booking tool needed to do. I also knew I didn&rsquo;t want another monthly subscription doing a job I could describe in a paragraph.</p>
+    <p>I already had a Lovable subscription, so I started there. I pasted in a screenshot of my website branding and a screenshot of Calendly, told it plainly that I&rsquo;m not a developer, listed the functionality I needed, and let it build. The first version looked beautiful. It matched my site so well you&rsquo;d think a designer did it.</p>
+    <p>Then my clients tried to book. The page ignored time zones entirely. A client would book 11:30am Eastern, which is 9:30 my time in Mountain, and the invite would land on their calendar as 9:30 Eastern. Two hours early, every time. Then came the Sunday night text: &ldquo;Seems like there&rsquo;s a snag with the site again. No booking times are loading.&rdquo; Two days later another client asked me to just resend a calendar link because nothing had loaded for her all week. So I was back to booking over text, which is the exact problem I built the thing to solve.</p>
+    <p>Lovable and I went three rounds trying to fix it. Each round I thought it was good, and each round it wasn&rsquo;t. So I moved the whole build over to Claude Code. Same inputs, a Calendly screenshot and my brand guidelines and the functionality written in plain English, plus the line I end every big prompt with: ask clarifying questions. It asked its questions, and then it built the thing that actually worked.</p>
+
+    <span class="article-section-label">The System</span>
+    <p><strong>The workflow was the hard part, and the coding was handed to AI.</strong></p>
+    <p>Before I wrote a word of that prompt, I mapped what actually happens when someone books with me. What happens when they pick a time, what I need from them before the call, where the money moves if the call has a price, and what lands on which calendar afterward. Before I automate anything with AI, I map what needs to happen and season it with my own taste. AI comes last in that order, because it can only create efficiency inside a workflow that already makes sense.</p>
+    <p><strong>What the rebuild does now.</strong> It books across multiple calendars without double-booking me, and it pulls the Google Meet link from the right Google Workspace account, because I run more than one and the wrong link means a client sitting in an empty room. Email notifications go out at the times I set. There&rsquo;s an admin panel where I can swap out appointment types and put a price on any event without touching code. And it matches my brand because I handed over the brand guidelines instead of hoping.</p>
+    <p><strong>The screenshots did more work than the prompt.</strong> A picture of Calendly communicated more than 3 paragraphs of description would have. I described what I needed in plain English, attached the screenshots, and let the clarifying questions surface everything I forgot to mention. That&rsquo;s how it learned about the 2 Workspace accounts before the wrong Meet link ever got sent.</p>
+    <p><strong>The order is the lesson.</strong> I&rsquo;ve bought the tool first before. Years ago I signed up for Acuity and then bent my schedule around whatever Acuity could do. This time the workflow came first and the tool got built to match it, and that&rsquo;s why this one stuck.</p>
+
+    <span class="article-section-label">In My Stack</span>
+    <p>The line I end every build prompt with: &ldquo;Ask any clarifying questions.&rdquo; That one sentence flips the AI from guessing to asking. Every requirement I would have discovered as a bug 2 weeks in comes out as a question on day 1 instead. It costs you 5 minutes of answering and it&rsquo;s the cheapest QA you&rsquo;ll ever run.</p>
+    <p><strong>The Time Back Assessment.</strong> The booking page exists because one workflow got clunky enough to bother me. The Time Back Assessment is me running that same audit on your business. We get on a 45-minute call and map the 3 workflows creating the most friction in your week, or the ones you flat out hate doing. You leave the call with the map, and within 48 hours you get your written Time Back Plan: the system I&rsquo;d put under each workflow, the AI tools I&rsquo;d use, and the one build to do first. It&rsquo;s $197, credited toward the build if we do it together. You book it on <a href="https://book.fromthefloorup.co" target="_blank" rel="noopener" style="color: var(--strike); text-decoration: underline; text-underline-offset: 3px;">the page I built</a>. The work is the proof.</p>
+
+    <div class="ask-box">
+      <p>Which tool are you paying for every month that you could now build yourself with AI?</p>
+    </div>
+
+    <span class="article-section-label">One Thing This Week</span>
+    <div class="one-thing">
+      <p>Map one clunky workflow through start, middle, and finish. Decide if an existing tool or your own AI-build solves it best for your business.</p>
+    </div>
+
+    <div class="sign-off">
+      <p>Daris</p>
+      <p>Founder, From The Floor Up &middot; <a href="https://fromthefloorup.co" target="_blank" style="color: var(--strike);">fromthefloorup.co</a></p>
+    </div>
+  </div>
 
   <!-- Issue 021 -->
   <div class="article-view" id="issue-021">
