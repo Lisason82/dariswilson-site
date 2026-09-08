@@ -1031,6 +1031,36 @@
       <p class="stone">New issues publish every Tuesday morning. Subscribe at <a href="https://fromthefloorup.co" target="_blank" style="color: var(--strike); text-decoration: underline; text-underline-offset: 3px;">fromthefloorup.co</a> to get them in your inbox.</p>
 
       <div class="archive-grid">
+        <div class="archive-card" onclick="showArticle('issue-027')">
+          <p class="archive-card-meta">Issue 027 &middot; September 8, 2026 &middot; 6 min read</p>
+          <h3>I Walked In With the Wrong Diagnosis</h3>
+          <p>Windell needed records, and I showed up ready to fix his invoicing. How 3 to 4 hours on his shop floor turned into a custom CRM holding around 170 trucks, and the 5 steps for reaching the root cause under the frustration that keeps showing up.</p>
+          <span class="read-link">Read &rarr;</span>
+        </div>
+        <div class="archive-card" onclick="showArticle('issue-026')">
+          <p class="archive-card-meta">Issue 026 &middot; September 1, 2026 &middot; 4 min read</p>
+          <h3>The 1st System I Built in My Broken Business</h3>
+          <p>JCF had customers and the rent still came up short, because every sale lived on that day&rsquo;s energy. The five pieces of the sales system built after that January: consistent leads, a tracked list, one clear offer, follow-up decided in advance, and a close with a repeatable script.</p>
+          <span class="read-link">Read &rarr;</span>
+        </div>
+        <div class="archive-card" onclick="showArticle('issue-025')">
+          <p class="archive-card-meta">Issue 025 &middot; August 25, 2026 &middot; 3 min read</p>
+          <h3>The 3 Jobs AI Does in My Service Business</h3>
+          <p>A warm outreach play for Care Lab sat forgotten in a note until AI surfaced it the day before it was needed. The three jobs AI holds in a service business, starting with memory, and the AI-Ready Folder Map that makes it work.</p>
+          <span class="read-link">Read &rarr;</span>
+        </div>
+        <div class="archive-card" onclick="showArticle('issue-024')">
+          <p class="archive-card-meta">Issue 024 &middot; August 18, 2026 &middot; 4 min read</p>
+          <h3>Stop Hiring People. Start Building Roles.</h3>
+          <p>January 2013, borrowing rent money after Sandy dried up JCF's four-week resells. Drawing the org chart at full size, ranking the boxes by what the hour is worth, and the four documents that solidify a role before anyone sits in it.</p>
+          <span class="read-link">Read &rarr;</span>
+        </div>
+        <div class="archive-card" onclick="showArticle('issue-023')">
+          <p class="archive-card-meta">Issue 023 &middot; August 11, 2026 &middot; 4 min read</p>
+          <h3>Most Owners Think Meetings Are for Big Teams</h3>
+          <p>A two-day Own the Room training, my own filler read back to me on tape, and the four-beat agenda skeleton that turned JCF's weekly meeting into the most useful 75 minutes of the week. The same bones now run a client's team.</p>
+          <span class="read-link">Read &rarr;</span>
+        </div>
         <div class="archive-card" onclick="showArticle('issue-022')">
           <p class="archive-card-meta">Issue 022 &middot; August 4, 2026 &middot; 4 min read</p>
           <h3>I Fired My Scheduling Software and Built This</h3>
@@ -1175,6 +1205,36 @@
       <p class="stone">Practical frameworks and planners built from real experience running service businesses. Enter your email to get instant access and start receiving From The Floor Up every Tuesday.</p>
 
       <div class="resources-grid">
+        <div class="resource-card">
+          <p class="resource-card-label">AI &amp; Operations</p>
+          <h3>The AI-Ready Folder Map</h3>
+          <p>A one-page map of the folder structure that gives AI a working memory of your business: the instructions file your AI reads first, the about folder that holds your voice, an operations folder with an inbox for notes and brain dumps, an outputs folder for your own builds, one folder per client with materials and outputs kept separate, and a templates folder for everything you send more than twice. Set it up once, about an hour, and every note you file becomes a reminder your AI can bring back.</p>
+          <p class="resource-card-meta">PDF &middot; 1 page &middot; From Issue 025</p>
+
+          <!-- Email gate: form shown, download hidden -->
+          <div id="resource-gate-foldermap">
+            <form id="resourceForm-foldermap" onsubmit="handleResourceSubmit(event, 'foldermap')" style="display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-end;">
+              <div style="flex: 1; min-width: 200px;">
+                <label style="font-family: var(--body); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); display: block; margin-bottom: 4px;">Email</label>
+                <input type="email" name="email" required placeholder="you@example.com" style="width: 100%; padding: 10px 12px; font-family: var(--body); font-size: 14px; border: 1px solid var(--slab); background: var(--print); color: var(--pitch); outline: none;">
+              </div>
+              <button type="submit" class="resource-cta" style="border: none; cursor: pointer; white-space: nowrap;">Get Free Download</button>
+            </form>
+            <p style="font-family: var(--body); font-size: 11px; color: var(--stone); margin-top: 8px;">You'll also receive From The Floor Up every Tuesday. Unsubscribe anytime.</p>
+          </div>
+
+          <!-- Download revealed after email submit -->
+          <div id="resource-download-foldermap" style="display: none;">
+            <div style="background: var(--pitch); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <p style="font-family: var(--body); font-size: 12px; font-weight: 500; color: var(--strike); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px;">You're in.</p>
+                <p style="font-family: var(--body); font-size: 13px; color: var(--slab);">Your folder map is ready. Check your inbox for Tuesday's newsletter.</p>
+              </div>
+              <a href="ai-ready-folder-map.pdf" class="resource-cta" download>Download Now</a>
+            </div>
+          </div>
+        </div>
+
         <div class="resource-card">
           <p class="resource-card-label">Lead Generation</p>
           <h3>The Reactivation Campaign Playbook</h3>
@@ -1340,7 +1400,212 @@
 
   <!-- ARTICLE VIEWS -->
 
-  <!-- Issue 022 -->
+  <!-- Issue 027 -->
+  <div class="article-view" id="issue-027">
+    <a class="article-back" onclick="showHome(); return false;">&larr; Back to Archive</a>
+    <p class="article-meta">Issue 027 &middot; September 8, 2026 &middot; 6 min read</p>
+    <h1>I Walked In With the Wrong Diagnosis</h1>
+
+    <span class="article-section-label">From the Floor</span>
+    <p>Windell is my neighbor. He runs Windways Diesel Emissions with his dad, a 2-man inspection station in the Denver metro that&rsquo;s been open since March 2021, and on a call last week he told me the first thing he ever noticed about me, years before any of this, was how organized our garage was while my wife and I were running her business out of it. He&rsquo;d never said that out loud until last week.</p>
+    <p>Earlier this year we were at a friend&rsquo;s house and the conversation turned to getting paid. Everyone in the room could relate, and Windell mentioned he had customers paying late and a couple not paying at all. 2 or 3 weeks later I called him and said I remembered what he&rsquo;d said and could help, and we set a date to sit down. He didn&rsquo;t know going in that I was coming to talk about invoices.</p>
+    <p>Invoicing came off the table fast. He already ran Helcim for invoices and payments, and the money outstanding came down to a small group of people. What he brought up instead was fleet trucks. Coca-Cola, with more than 100 vehicles, would bring the same truck for an emissions test 2 or 3 times a year, sometimes twice in the same month, because nobody on their end was tracking it. Windell charged them at first, felt bad about it, and started running the repeat tests for free. That&rsquo;s 20 minutes on a semi, unpaid. Checking a truck&rsquo;s history in the state&rsquo;s system meant leaving the bay for the office computer, so in practice he found out after the test was done.</p>
+    <p>So between the discovery meeting and a visit to his shop, I spent 3 to 4 hours with Windell watching how he and his dad actually work. 5 years of paper, every vehicle written down by hand and kept. Fleet mechanics dropping off handwritten lists of unit numbers. A doorbell at the desk and Windell walking back and forth to see who was next.</p>
+    <p>That visit is what turned an invoicing job into a custom CRM: every company, every truck, the fleet manager&rsquo;s contact, all of it tied to a VIN with the last test date and the next one due. Today it holds around 170 trucks across 25 or so companies, and a FedEx fleet mechanic now gets a PDF of every truck he&rsquo;s brought in, so he knows which ones are done for the year. Windell&rsquo;s line to another mechanic who handed him a paper checklist last month: &ldquo;Only thing your paper is telling me is what you have to bring. My CRM is now telling me what we&rsquo;ve done.&rdquo;</p>
+
+    <span class="article-section-label">The System</span>
+    <p><strong>The frustration that keeps showing up in your business is a symptom, and a fix only holds when it reaches the problem.</strong></p>
+    <p>I got this wrong with Windell before I got it right. I heard late payers and assumed an accounts receivable problem, and I had an invoicing build half sketched before we sat down. The pain was real. The root cause was different: he didn&rsquo;t have organized, digital records of which trucks he&rsquo;d tested and when, so the same truck kept coming back and he kept eating the test. I went through the same thing this summer in my wife&rsquo;s business, where the pain showed up as copycats, refunds, and samples that didn&rsquo;t match the production run, and the root cause turned out to be manufacturing partners we couldn&rsquo;t trust. What follows is the process I reverse engineered from both, written on an index card so I could hand it to her, and it&rsquo;s simple enough to run on your own business this week.</p>
+    <p><strong>1. Diagnose the pain.</strong> Start with what keeps showing up and frustrating you, and name it plainly. Refunds. The same truck tested twice. Then keep asking what&rsquo;s producing it until you land on something you can actually change. In both of my cases the pain and the root cause were two different things. Windell&rsquo;s pain was money, his root cause was records. Ours was refunds, and the cause was the partners.</p>
+    <p><strong>2. Brainstorm all the solutions.</strong> Every option, including the ones you&rsquo;d never pick, before you fall for one. For the records problem the list held a spreadsheet, an off-the-shelf fleet tool built for repair shops, and a custom build. For the manufacturing problem it held tighter quality control with the same partners, new partners, and approving samples in-house before every run.</p>
+    <p><strong>3. Decide on the solution.</strong> One. Pick it for how well it reaches the root cause, because this is the step where urgent and flashy pull hardest. Windell&rsquo;s was a custom CRM with every truck tied to a VIN. Ours was new manufacturers and a real vetting process, with no deadline on it, because rushing the vetting is how we got here.</p>
+    <p><strong>4. Understand what the solution entails, thoroughly.</strong> List every action, tool, and person it takes to solve the problem completely. For Windell that meant entering 170 trucks by hand, calling companies to find fleet managers he&rsquo;d never met (he has contacts for fewer than half of them), and keeping paper next to the CRM while the backlog cleared. This list is also where you find out what you&rsquo;re saying no to. Whatever&rsquo;s on it is the priority now, and the other things wait.</p>
+    <p><strong>5. Take action until it&rsquo;s implemented.</strong> Until it&rsquo;s done, not until it&rsquo;s started. Windell still has a stack of about 20 trucks to enter. We&rsquo;re still vetting. If you have a team, the first action on your list is telling them what the priority is and why, because a fix the team doesn&rsquo;t know about is one more thing only you&rsquo;re carrying.</p>
+    <p>One more thing about that sit-down. I walked in with the wrong diagnosis, and Windell is the one who corrected it. He&rsquo;d already looked at fleet software and knew it was built for repair shops. He knew the money outstanding was a few people and not a system. He knew the thing costing him was the records, and he said so in the first 20 minutes. I built the CRM, but he did step 1 on his own before I ever showed up, which is the hardest step on the card.</p>
+
+    <span class="article-section-label">In My Stack</span>
+    <p>This week the tool is the discovery. Before the CRM had a single line of code, I spent 3 to 4 hours with Windell, a sit-down meeting and then a visit to the shop to watch a normal day, and the notes from those went into the build right away. What I watched for: where information lives right now (paper, someone&rsquo;s head, a state website), what the customer asks while they wait, and what the owner does twice.</p>
+    <p>If you want a second set of eyes running this process on your business, that&rsquo;s what my free Discovery Call is for. <a href="https://book.fromthefloorup.co" target="_blank" rel="noopener" style="color: var(--strike); text-decoration: underline; text-underline-offset: 3px;">Book one here</a> and bring the problem you&rsquo;ve been meaning to fix.</p>
+
+    <div class="ask-box">
+      <p>What&rsquo;s underneath the frustration that keeps showing up?</p>
+    </div>
+
+    <span class="article-section-label">One Thing This Week</span>
+    <div class="one-thing">
+      <p>Take the frustration that showed up most this month and run steps 1 and 2 tonight. Write the pain at the top of a page, write the root cause under it, and list every solution you can think of before you pick one.</p>
+    </div>
+
+    <div class="sign-off">
+      <p>I thought Windell needed to fix his invoicing. The 3 to 4 hours I spent with him during the discovery meeting and at his shop are the reason he has a CRM today and 170 trucks he&rsquo;ll never test twice.</p>
+      <p>Daris</p>
+      <p>Founder, From The Floor Up &middot; <a href="https://fromthefloorup.co" target="_blank" style="color: var(--strike);">fromthefloorup.co</a></p>
+    </div>
+  </div>
+
+  <!-- Issue 026 -->
+  <div class="article-view" id="issue-026">
+    <a class="article-back" onclick="showHome(); return false;">&larr; Back to Archive</a>
+    <p class="article-meta">Issue 026 &middot; September 1, 2026 &middot; 4 min read</p>
+    <h1>The 1st System I Built in My Broken Business</h1>
+
+    <span class="article-section-label">From the Floor</span>
+    <p>A couple weeks ago I told you about January 2013, the month I borrowed money from a college friend to pay my rent. What I left out was the part that confused me most while I was living it. JCF had customers. People showed up in the cold, sweated through the workouts, brought their friends. And I still came up short on rent.</p>
+    <p>The problem was that I had to resell every one of them, every single month. Twenty-eight days of training, then straight back out to fill the next twenty-eight. Nothing recurring, nothing tracked, no follow-up beyond whoever I happened to catch after a workout. Every month started at zero, and every sale lived or died on how much energy I had that day.</p>
+    <p>After that January I made a decision that took two years to finish. I went and learned sales from some of the best fitness entrepreneurs in the country, and I built the machinery piece by piece: a way to bring in leads consistently, a place to track every one of them, an offer to move them into, a follow-up system for the ones who went quiet, and a sales consultation system for the ones who raised their hand.</p>
+    <p>The org chart I drew that January told me which seats the business needed. Sales was the first one I actually built, because it was the one that paid for all the others.</p>
+
+    <span class="article-section-label">The System</span>
+    <p><strong>Sales is the bloodline of a business. If there are no customers, there is no business.</strong></p>
+    <p>So before you build anything else inside a disorganized business, build the thing that turns interest into money on purpose. First, know where it starts and ends. Marketing is one-to-many, talking to people you can&rsquo;t name yet. The moment a specific person raises their hand, a call, a form, a walk-in, they become a lead, and everything from that point until the payment clears is sales. Five pieces make the system.</p>
+    <p><strong>Consistent leads.</strong> A sales system starves without inputs, so pick the one or two channels that already produce hand-raisers for you and give them a weekly rhythm instead of a burst when things get slow. At JCF the leads were there all along, referrals and walk-ups, and the change was giving them a rhythm I could count on.</p>
+    <p><strong>Track every lead.</strong> One place, every name, with contact info, where they came from, and a next step. It can be a spreadsheet. The test is simple: if a lead came in this morning and you got busy, their name still exists somewhere on Friday.</p>
+    <p><strong>An offer to move them into.</strong> A lead needs somewhere specific to go, one clear front-end offer with a price and a start, so the conversation ends in a decision instead of a &ldquo;sounds good, I&rsquo;ll think about it.&rdquo;</p>
+    <p><strong>Follow-up.</strong> Quotes and inquiries go quiet, and the follow-up rhythm is what separates quiet from gone. Decide the touches in advance, two days, one week, one month, so following up is a task on a list instead of a judgment call you make when you remember.</p>
+    <p><strong>The close.</strong> When someone takes the offer, sit down with them. A scheduled conversation with a repeatable script, where you ask for the decision and the payment in the same meeting. This was the piece I had to learn from scratch, and it&rsquo;s the piece that turned JCF&rsquo;s crowd into a membership.</p>
+
+    <span class="article-section-label">In My Stack</span>
+    <p>This week I built my own version of a Linktree in Codex, one page that holds every link into what I do: the newsletter signup, the latest reel, my social profiles, and my ADHD productivity cheat code. Tools like Linktree and Stan Store charge a monthly fee for this, and I wanted one I own that matches my brand.</p>
+    <p>It connects to this week&rsquo;s lesson more than it looks like it does. A links page is the capture step of a sales system, one front door where a hand-raiser from any platform lands in a place I control. <a href="https://links.fromthefloorup.co" target="_blank" rel="noopener" style="color: var(--strike); text-decoration: underline; text-underline-offset: 3px;">Take a look</a> and steal the layout for your own.</p>
+
+    <div class="ask-box">
+      <p>What is my process when someone tells me &ldquo;sounds good&rdquo;?</p>
+    </div>
+
+    <span class="article-section-label">One Thing This Week</span>
+    <div class="one-thing">
+      <p>Pull every lead from the last 30 days into one list, mark the last touch next to each name, and send one follow-up today to the person who&rsquo;s been quiet the longest. That single list is the seed of your sales system.</p>
+    </div>
+
+    <div class="sign-off">
+      <p>I resold my whole business every month for five years before I built the machine that did it for me. Build yours before you need to.</p>
+      <p>Daris</p>
+      <p>Founder, From The Floor Up &middot; <a href="https://fromthefloorup.co" target="_blank" style="color: var(--strike);">fromthefloorup.co</a></p>
+    </div>
+  </div>
+
+  <!-- Issue 025 -->
+  <div class="article-view" id="issue-025">
+    <a class="article-back" onclick="showHome(); return false;">&larr; Back to Archive</a>
+    <p class="article-meta">Issue 025 &middot; August 25, 2026 &middot; 3 min read</p>
+    <h1>The 3 Jobs AI Does in My Service Business</h1>
+
+    <span class="article-section-label">From the Floor</span>
+    <p>Several weeks ago I jotted down a play for Care Lab Collective, a parent community I&rsquo;m working with on their back-to-school campaign launch. The note was a warm outreach play: an email campaign ascending current members into the new annual membership offering, and a second track to folks who did a trial in the past or stopped their membership for whatever reason, inviting them back in as part of the campaign. Phase 1 work, the pre-launch move where you ascend your warm and hot audiences before the doors ever open. The reactivation half of it is the same play I wrote about in this newsletter a few months back.</p>
+    <p>Then launch season swallowed me. The trial experience, the updated webpage, what the community marketing would look like. I was enthralled with all of it, and the note sat where I left it.</p>
+    <p>Yesterday I was putting together a PDF to present to the Care Lab team, and my AI reminded me: the warm outreach play from several weeks ago wasn&rsquo;t in the plan. I had forgotten the thing entirely. And I got it back at the exact moment I could still use it, before the campaign opens instead of after.</p>
+    <p>The efficiency side of AI is real, and it&rsquo;s honestly the part I appreciate least. The part I appreciate most: I can jot down a note, a brainstorm, a half-formed brain dump, and it remembers all of it and brings it back when it matters. That reminder yesterday was beautiful, and it&rsquo;s the reason this issue exists.</p>
+
+    <span class="article-section-label">The System</span>
+    <p><strong>AI&rsquo;s first job in a service business is memory. Every other job builds on it.</strong></p>
+    <p><strong>Job 1: it remembers what you jot down.</strong> Notes, brainstorms, and brain dumps go in the moment they happen, no polishing, no organizing in the moment. The Care Lab play came back because the note lived somewhere my AI could see it. A note filed where AI reads it is a reminder waiting for its moment.</p>
+    <p><strong>Job 2: it repeats your best deliverables, on brand.</strong> Service agreements, proposals, recap emails. I have very little design skill, and every deliverable still goes out in the client&rsquo;s branding, because the format got built once and gets reused every time after. A recap email that used to cost me an evening now goes out the same day as the call, and that&rsquo;s what closing the loop actually looks like week over week.</p>
+    <p><strong>Job 3: the first two combine into personal, high-touch work.</strong> Because the notes, transcripts, and brand files are all filed, a proposal can pull the nuanced details: the client&rsquo;s own words, the goal they named 3 calls ago, the decision made on the last call. The deliverable arrives on brand and personalized at a depth I could not produce alone at this speed.</p>
+    <p><strong>And underneath all 3, confidence.</strong> I&rsquo;ve got 16 years of business behind me and still carry some imposter syndrome. Knowing the t&rsquo;s are crossed and nothing is falling through the cracks changes how I walk into coaching calls, presentations, and strategy work, and I think clients can feel that difference.</p>
+
+    <span class="article-section-label">In My Stack</span>
+    <p><strong>The AI-Ready Folder Map.</strong> None of this works if files live loose on a desktop, because memory starts with where things go. I mapped my exact structure onto one page: the instructions file your AI reads first, the about folder that holds your voice, an operations folder with an inbox for brain dumps, an outputs folder for your own builds, one folder per client with materials and outputs kept separate, and a templates folder for everything you send more than twice.</p>
+    <p>Download it here: <a href="https://fromthefloorup.co/ai-ready-folder-map.pdf" target="_blank" rel="noopener" style="color: var(--strike); text-decoration: underline; text-underline-offset: 3px;">The AI-Ready Folder Map (PDF)</a></p>
+    <p>And if you want me to map this onto your business live, the Time Back Assessment is the call for exactly that: <a href="https://book.fromthefloorup.co" target="_blank" rel="noopener" style="color: var(--strike); text-decoration: underline; text-underline-offset: 3px;">book.fromthefloorup.co</a>.</p>
+
+    <div class="ask-box">
+      <p>What happened to the last good idea you jotted down in the middle of a busy week?</p>
+    </div>
+
+    <span class="article-section-label">One Thing This Week</span>
+    <div class="one-thing">
+      <p>Pick one home for every note, brainstorm, and brain dump this week, one folder or one running doc, and drop each one there the moment it happens. Friday, ask your AI to read the week&rsquo;s notes back to you and flag the one that deserves a slot next week.</p>
+    </div>
+
+    <div class="sign-off">
+      <p>Daris</p>
+      <p>Founder, From The Floor Up &middot; <a href="https://fromthefloorup.co" target="_blank" style="color: var(--strike);">fromthefloorup.co</a></p>
+    </div>
+  </div>
+
+  <!-- Issue 024 -->
+  <div class="article-view" id="issue-024">
+    <a class="article-back" onclick="showHome(); return false;">&larr; Back to Archive</a>
+    <p class="article-meta">Issue 024 &middot; August 18, 2026 &middot; 4 min read</p>
+    <h1>Stop Hiring People. Start Building Roles.</h1>
+
+    <span class="article-section-label">From the Floor</span>
+    <p>In January 2013 I borrowed money from a college friend to pay my rent. My oldest was 18 months old. I remember sitting there doing the math on what I had against what I owed and coming up short, and how quiet the apartment was while I did it.</p>
+    <p>Hurricane Sandy had come through a couple months before, late 2012. JCF was an outdoor boot camp then, and every four weeks I had to go resell the entire business. No memberships, no subscriptions, nothing recurring. Twenty-eight days of training, then straight back out to fill the next twenty-eight. We had a real culture at that point, nowhere near what it eventually became, and when Sandy hit, people had bigger things to think about than signing up for another four weeks. It was disposable, and it dried up fast.</p>
+    <p>From 2008 up to that January I had run the whole thing on momentum and effort. Whatever the business needed, I did. That held for almost five years and then the bill came due all at once.</p>
+    <p>What I did next didn&rsquo;t look like much from the outside. I sat down with a pad and drew out what JCF could be at full size, every seat that business would need if it ever got there, and then I looked at how many of those seats had my name in them.</p>
+    <p>That drawing didn&rsquo;t make me a dollar that month. What it did was change the question. I stopped asking how do I get through February and started asking who is supposed to be doing this work. I had been the best trainer in my own business for five years and I had not spent a single day being the owner of it. That was the first time I put the horse before the carriage.</p>
+
+    <span class="article-section-label">The System</span>
+    <p><strong>An org chart is a list of the seats your business needs at the size you want it, plus a plan for getting your name out of each one.</strong></p>
+    <p>Most owners hear org chart and picture a corporate wall poster with twelve names on it, which at two people feels like wearing a costume. Draw it anyway, because until the seats are written down somewhere, every task that shows up without an obvious owner travels straight back to you, and that&rsquo;s how an owner stays stuck doing twenty-dollar work at nine at night while the work only they can do sits waiting.</p>
+    <p><strong>Draw the business at the size you want it.</strong> Ignore who you currently have and sketch the seats your business would need when it&rsquo;s fully operational, think roles not people. Most service businesses land on seven: sales, service delivery, scheduling, billing and admin, marketing, hiring and training, and money.</p>
+    <p><strong>Put your name in every box you actually hold.</strong> When I first created my org chart in 2013, my name filled most of the boxes. If you&rsquo;re newer to business, you may find the same thing. Seeing that on paper can be useful because it makes it clear what can be delegated or eliminated.</p>
+    <p><strong>Rank your boxes by what the hour is worth.</strong> Next to every box with your name in it, write how many hours a week it takes and what you&rsquo;d have to pay someone else to do it. Admin at twenty dollars an hour and sales at whatever your average job is worth do not belong on the same to-do list. The cheap hours leave first.</p>
+    <p><strong>Solidify the role before you fill it.</strong> This makes the removal permanent. Before another name fills the box, write four things: a job description, a hiring checklist, a scorecard, and a position agreement. With these four items, you&rsquo;ll have the tasks the role is responsible for, the tools and resources the role has access to, and what success looks like, and most importantly, these documents supersede the name filling the box. Once complete, hand it to a part-timer, a 1099, a family member, whoever fits, and hold them to the written version rather than to how you would have done it. One box at a time until you have a business that does not require you to pull all of the levers in order for it to grow.</p>
+
+    <span class="article-section-label">In My Stack</span>
+    <p>I gave a box to an AI employee before I gave one to a person. It holds the notes and follow-up seat. After a client call it takes the transcript, pulls the decisions and the action items, drafts the recap in my voice, and hands it back for me to approve before anything goes out.</p>
+    <p>Those four documents are what made it work. I fed the AI the same job description and the same scorecard I would hand a person, because a role nobody defined produces vague work whether a human or a machine is sitting in it.</p>
+    <p>Find the role where tasks are repeatable and done is a binary yes or no answer, and hand that one over first. It will cost a paid plan to Claude, ChatGPT, or Gemini.</p>
+    <p><strong>The Time Back Assessment.</strong> We get on a 45-minute call and map the 3 workflows creating the most friction in your week. You leave with the map, and within 48 hours you get your written Time Back Plan: the system I&rsquo;d put under each workflow, the tools I&rsquo;d use, and the one fix to make first. It&rsquo;s $197, credited toward the build if we do it together. Book it at <a href="https://book.fromthefloorup.co" target="_blank" rel="noopener" style="color: var(--strike); text-decoration: underline; text-underline-offset: 3px;">book.fromthefloorup.co</a>.</p>
+
+    <div class="ask-box">
+      <p>If you handed someone the business tomorrow, how much of it would they have to ask you about?</p>
+    </div>
+
+    <span class="article-section-label">One Thing This Week</span>
+    <div class="one-thing">
+      <p>Draw your org chart. Think roles not people. List the appropriate role at the top of the box and the corresponding name of the person that holds the title. Then start the four documents for that one box, the job description, the hiring checklist, the scorecard, and the position agreement, so the role is solid before anybody sits in it.</p>
+    </div>
+
+    <div class="sign-off">
+      <p>Daris</p>
+      <p>Founder, From The Floor Up &middot; <a href="https://fromthefloorup.co" target="_blank" style="color: var(--strike);">fromthefloorup.co</a></p>
+    </div>
+  </div>
+
+  <!-- Issue 023 -->
+  <div class="article-view" id="issue-023">
+    <a class="article-back" onclick="showHome(); return false;">&larr; Back to Archive</a>
+    <p class="article-meta">Issue 023 &middot; August 11, 2026 &middot; 4 min read</p>
+    <h1>Most Owners Think Meetings Are for Big Teams</h1>
+
+    <span class="article-section-label">From the Floor</span>
+    <p>A few years into JCF I sat through a two-day Own the Room training on running meetings and speaking. I walked in thinking I already knew this part. I&rsquo;d been running team meetings for years and I&rsquo;m comfortable in front of a room.</p>
+    <p>Then they had us record ourselves and read our own filler back. Every &ldquo;um,&rdquo; every &ldquo;basically,&rdquo; every sentence that added nothing to the point. There was a running bit for weak language, a coaching cue every time somebody watered down their own message. Mine came up more than I wanted. One of the coaches called it water-downed Pepsi, the message is in there, you just diluted it until nobody could taste it.</p>
+    <p>The line that stuck with me was &ldquo;speak only when you can improve upon the silence.&rdquo; And then the stat that reframed the whole thing: when you deliver a message, 7% of what lands is the words, 38% is your tone, and 55% is everything your body is doing. I&rsquo;d been spending all my prep on the words and winging the other 93%.</p>
+    <p>The second half was the part I actually needed, running the meeting itself. Start on time. Sidebar anything that pulls the room off the agenda so one person&rsquo;s tangent doesn&rsquo;t eat everyone&rsquo;s 30 minutes. Get people participating every 10 or 15 minutes instead of talking at them. Close with an action, not &ldquo;okay, thanks, see you next week.&rdquo;</p>
+    <p>I went home and rebuilt my JCF agenda around it. Then years later I built the same skeleton for a coaching client who runs a small team. Different business, different people, same bones. The agenda barely changed, and that&rsquo;s the part that surprised me.</p>
+
+    <span class="article-section-label">The System</span>
+    <p><strong>A meeting is a system you run.</strong></p>
+    <p>For a long time my JCF meetings were me showing up, talking through whatever was on my mind, and everyone nodding. That&rsquo;s the version that earns meetings their bad reputation. The training handed me a structure, and that structure turned my meeting into the most useful 75 minutes of my week.</p>
+    <p>This matters even if you don&rsquo;t have a team yet. You&rsquo;re already running meetings. If you&rsquo;re solo, the meeting is the 20 minutes you sit down with your own numbers and decide what the week is for. If you&rsquo;ve got a couple of 1099s or an offshore freelancer, every check-in is a meeting. Every vendor call and every client call is a meeting you&rsquo;re running, whether you named it one or not.</p>
+    <p><strong>The skeleton stays, the payload changes.</strong> At JCF I ran a standing weekly team meeting on a time-boxed agenda, and any time a one-off came up, a new social media push for example, we&rsquo;d meet and run the same structure. Same slots, completely different content poured in each time. A coaching client of mine runs on the same bones with her own topics inside them. Build the skeleton once and you stop reinventing the meeting every week.</p>
+    <p><strong>Four beats: open, frame, work, close.</strong> Open on time and open warm, a shout-out or a quick win, because recognition up front makes people want to be in the room. Frame the month&rsquo;s goal and this week&rsquo;s priorities against a written agenda with a time box on every topic, and send it before you meet. Work the middle, what went well, what to fix, one thing worth training, and honest feedback. Close with action items that each have a name attached, then a round of questions, concerns, and comments so nobody walks out unclear.</p>
+    <p><strong>Two must-dos.</strong> The first is the sidebar. When a tangent shows up you name it, park it, and come back at the end if it still matters, so one rabbit hole doesn&rsquo;t cost everyone their afternoon. The second is how you communicate, because only 7% of the message is the words. Your tone has to match the weight of what you&rsquo;re delivering, so when the month&rsquo;s priority actually matters, your voice has to say it matters, otherwise it&rsquo;s like you didn&rsquo;t cover it. And when you want feedback, ask for the specific kind, &ldquo;tell me one thing I can improve,&rdquo; because people are too polite to volunteer it on their own.</p>
+
+    <span class="article-section-label">In My Stack</span>
+    <p>The agenda skeleton I still hand to clients. Copy it, put your own topics in the slots, and keep the time boxes: shout-outs and a win (5 min), goal and priorities for the month (5-10 min), debrief and one thing to train (15-20 min), this week&rsquo;s priorities and who owns what (5-10 min), then questions, concerns, comments (5 min).</p>
+    <p>Send it before the meeting, put a visible timer on the table, and sidebar anything that doesn&rsquo;t fit a slot.</p>
+    <p><strong>The Time Back Assessment.</strong> A recurring meeting that drains your week is a workflow like any other, and a clunky workflow is exactly what the Time Back Assessment is for. We get on a 45-minute call and map the 3 workflows creating the most friction in your week, the meeting that never ends included. You leave with the map, and within 48 hours you get your written Time Back Plan. It&rsquo;s $197, credited toward the build if we do it together. Book it at <a href="https://book.fromthefloorup.co" target="_blank" rel="noopener" style="color: var(--strike); text-decoration: underline; text-underline-offset: 3px;">book.fromthefloorup.co</a>.</p>
+
+    <div class="ask-box">
+      <p>If someone dropped into your last meeting cold, could they tell you what it was for and what got decided?</p>
+    </div>
+
+    <span class="article-section-label">One Thing This Week</span>
+    <div class="one-thing">
+      <p>Write a fixed agenda for your next meeting, put a time box on every line and one owner on every action item, and send it before you meet. If you&rsquo;re solo, book a 20-minute meeting with yourself this week and run it against that same agenda. If you&rsquo;ve got a team, even a couple of 1099s or freelancers, run your next check-in start to close without letting it drift, and end on who owns what.</p>
+    </div>
+
+    <div class="sign-off">
+      <p>Daris</p>
+      <p>Founder, From The Floor Up &middot; <a href="https://fromthefloorup.co" target="_blank" style="color: var(--strike);">fromthefloorup.co</a></p>
+    </div>
+  </div>
+
   <div class="article-view" id="issue-022">
     <a class="article-back" onclick="showHome(); return false;">&larr; Back to Archive</a>
     <p class="article-meta">Issue 022 &middot; August 4, 2026 &middot; 4 min read</p>

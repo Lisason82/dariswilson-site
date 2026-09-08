@@ -1,0 +1,48 @@
+plugins = []
+headers = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "/Users/dariswilson/Desktop/gOS_Cowork/dariswilson-site"
+publishOrigin = "ui"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[[redirects]]
+from = "/book"
+to = "https://ftfu-book.lovable.app/"
+status = 302.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/book/*"
+to = "https://ftfu-book.lovable.app/:splat"
+status = 302.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]

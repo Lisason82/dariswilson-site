@@ -742,7 +742,8 @@
       <div>
         <div class="eyebrow"><span class="strike-dot"></span>The Bundled Resource</div>
         <h2>The Local Business Marketing Playbook.</h2>
-        <p>At the end of the series, every resource gets bundled into a single playbook delivered to your inbox. Front-end offer designer, awareness channel audit, profile checklist, the workshop that sells, turn ads into customers, turn customers into referrals, and turn leads into customers who stay. One file. Free. Subscribers only.</p>
+        <p>The series is complete and every resource now lives in one playbook. All seven workbooks in funnel order, 65 pages with a start-here map that shows you which stage to fix first. Front-end offer designer, awareness channel audit, profile audit, the workshop that sells, turn ads into customers, turn customers into referrals, and turn leads into customers who stay. One file. Free. Subscribers only.</p>
+        <p><a href="#" class="magnet-link" onclick="openLbpModal(event)">Get the complete playbook &rarr;</a></p>
       </div>
       <div class="mock">
         <div class="mock-eyebrow">From The Floor Up &nbsp;·&nbsp; Playbook</div>
@@ -988,6 +989,31 @@
       <h3>The workbook is ready.</h3>
       <p>I've added you to the list and the next issue lands in your inbox Tuesday morning. Click below to download the workbook now.</p>
       <a href="turn-leads-into-customers-who-stay.pdf" download class="modal-download-btn">Download the workbook</a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ EMAIL-GATE MODAL — LBP (Bundle) ════════════ -->
+<div id="lbp-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="lbp-modal-title">
+  <div class="modal-card">
+    <button type="button" class="modal-close" onclick="closeLbpModal()" aria-label="Close">&times;</button>
+
+    <div id="lbp-form-state">
+      <div class="modal-eyebrow">Free Download &nbsp;·&nbsp; The Complete Series</div>
+      <h3 id="lbp-modal-title">The Local Business Marketing Playbook</h3>
+      <p>Drop your email and the full bundle is yours. All seven workbooks from the series in one file, 65 pages in funnel order, with a start-here map that shows you which stage of your funnel to fix first. You'll also get From The Floor Up every Tuesday morning.</p>
+      <form id="lbpEmailForm" onsubmit="return handleLbpSubmit(event)">
+        <input type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+        <button type="submit">Send me the playbook</button>
+      </form>
+      <p class="modal-note">One email a week. Unsubscribe anytime.</p>
+    </div>
+
+    <div id="lbp-success-state" style="display: none;">
+      <div class="modal-eyebrow" style="color: var(--strike);">You're in.</div>
+      <h3>The playbook is ready.</h3>
+      <p>I've added you to the list and the next issue lands in your inbox Tuesday morning. Click below to download the complete playbook now.</p>
+      <a href="local-business-marketing-playbook.pdf" download class="modal-download-btn">Download the playbook</a>
     </div>
   </div>
 </div>
@@ -1373,6 +1399,60 @@
     return false;
   }
 
+  // ─────────── LBP MODAL (Bundle) ───────────
+  function openLbpModal(e) {
+    if (e) e.preventDefault();
+    document.getElementById('lbp-form-state').style.display = 'block';
+    document.getElementById('lbp-success-state').style.display = 'none';
+    document.getElementById('lbp-modal').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() {
+      var input = document.querySelector('#lbpEmailForm input[name="email"]');
+      if (input) input.focus();
+    }, 100);
+  }
+
+  function closeLbpModal() {
+    document.getElementById('lbp-modal').classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  function handleLbpSubmit(e) {
+    e.preventDefault();
+    var email = e.target.email.value;
+
+    var iframe = document.createElement('iframe');
+    iframe.name = 'lbp-beehiiv-iframe-' + Date.now();
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://subscribe-forms.beehiiv.com/55701a6d-634f-4b37-9418-5739527e13c0';
+    form.target = iframe.name;
+    form.style.display = 'none';
+
+    var emailInput = document.createElement('input');
+    emailInput.type = 'email';
+    emailInput.name = 'email';
+    emailInput.value = email;
+    form.appendChild(emailInput);
+
+    document.body.appendChild(form);
+    form.submit();
+
+    setTimeout(function() {
+      document.getElementById('lbp-form-state').style.display = 'none';
+      document.getElementById('lbp-success-state').style.display = 'block';
+      if (form.parentNode) form.parentNode.removeChild(form);
+      setTimeout(function() {
+        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+      }, 3000);
+    }, 450);
+
+    return false;
+  }
+
   // Close on ESC (all modals)
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
@@ -1390,6 +1470,8 @@
       if (tcr && tcr.classList.contains('is-open')) closeTcrModal();
       var tlc = document.getElementById('tlc-modal');
       if (tlc && tlc.classList.contains('is-open')) closeTlcModal();
+      var lbp = document.getElementById('lbp-modal');
+      if (lbp && lbp.classList.contains('is-open')) closeLbpModal();
     }
   });
 
@@ -1435,6 +1517,12 @@
     if (tlc) {
       tlc.addEventListener('click', function(e) {
         if (e.target === tlc) closeTlcModal();
+      });
+    }
+    var lbp = document.getElementById('lbp-modal');
+    if (lbp) {
+      lbp.addEventListener('click', function(e) {
+        if (e.target === lbp) closeLbpModal();
       });
     }
   });
