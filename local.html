@@ -518,6 +518,44 @@
     .final-inner { padding: 0 22px; }
   }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2200470660515945');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2200470660515945&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- FTFU newsletter conversion: Meta Lead + GA4 newsletter_subscribe, fired only on Beehiiv form success -->
+<script>
+(function () {
+  var fired = false;
+  window.addEventListener('message', function (e) {
+    if (e.origin !== 'https://subscribe-forms.beehiiv.com') return;
+    var d = e.data || {};
+    var t = d.type || '';
+    if (t !== 'beehiiv:success-toast' && t !== 'beehiiv:submitted') return;
+    if (fired) return;
+    fired = true;
+    var eventId = 'ftfu-lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead', { content_name: 'newsletter', content_category: 'subscribe' }, { eventID: eventId });
+    }
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'newsletter_subscribe', { form_location: window.location.pathname, event_id: eventId });
+    }
+  });
+})();
+</script>
 </head>
 <body>
 
