@@ -1268,6 +1268,36 @@ src="https://www.facebook.com/tr?id=2200470660515945&ev=PageView&noscript=1"
 
       <div class="resources-grid">
         <div class="resource-card">
+          <p class="resource-card-label">Planning</p>
+          <h3>The Q4 Planning Toolkit</h3>
+          <p>One map for the whole quarter. A 2026 anchor-date calendar from October through New Year&rsquo;s, a last-year intel worksheet, an opportunity-to-hypothesis sheet that turns soft promo days into one number you can test, an offer packaging sheet, the asset checklist, and the messaging playbook for email, text, social, and paid. Built from four years of running Q4 at TerrellDominick.com.</p>
+          <p class="resource-card-meta">PDF &middot; 11 pages &middot; From Issue 030</p>
+
+          <!-- Email gate: form shown, download hidden -->
+          <div id="resource-gate-q4toolkit">
+            <form id="resourceForm-q4toolkit" onsubmit="handleResourceSubmit(event, 'q4toolkit')" style="display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-end;">
+              <div style="flex: 1; min-width: 200px;">
+                <label style="font-family: var(--body); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); display: block; margin-bottom: 4px;">Email</label>
+                <input type="email" name="email" required placeholder="you@example.com" style="width: 100%; padding: 10px 12px; font-family: var(--body); font-size: 14px; border: 1px solid var(--slab); background: var(--print); color: var(--pitch); outline: none;">
+              </div>
+              <button type="submit" class="resource-cta" style="border: none; cursor: pointer; white-space: nowrap;">Get Free Download</button>
+            </form>
+            <p style="font-family: var(--body); font-size: 11px; color: var(--stone); margin-top: 8px;">You'll also receive From The Floor Up every Tuesday. Unsubscribe anytime.</p>
+          </div>
+
+          <!-- Download revealed after email submit -->
+          <div id="resource-download-q4toolkit" style="display: none;">
+            <div style="background: var(--pitch); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <p style="font-family: var(--body); font-size: 12px; font-weight: 500; color: var(--strike); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px;">You're in.</p>
+                <p style="font-family: var(--body); font-size: 13px; color: var(--slab);">Your toolkit is ready. Check your inbox for Tuesday's newsletter.</p>
+              </div>
+              <a href="q4-planning-toolkit.pdf" class="resource-cta" download>Download Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="resource-card">
           <p class="resource-card-label">AI &amp; Operations</p>
           <h3>The AI-Ready Folder Map</h3>
           <p>A one-page map of the folder structure that gives AI a working memory of your business: the instructions file your AI reads first, the about folder that holds your voice, an operations folder with an inbox for notes and brain dumps, an outputs folder for your own builds, one folder per client with materials and outputs kept separate, and a templates folder for everything you send more than twice. Set it up once, about an hour, and every note you file becomes a reminder your AI can bring back.</p>
